@@ -1,0 +1,25 @@
+{
+  "name": "ahmad-ainul-afeeq-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website for Ahmad Ainul Afeeq",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "cybersecurity",
+    "web"
+  ],
+  "author": "Ahmad Ainul Afeeq",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemailer": "^8.0.7",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
