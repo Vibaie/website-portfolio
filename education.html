@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education | Ahmad Ainul Afeeq</title>
+    <meta name="description" content="Academic history and educational background of Ahmad Ainul Afeeq.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <canvas id="particle-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; opacity: 0.8;"></canvas>
+    <div id="scroll-progress"></div>
+
+    <header>
+        <nav>
+            <div class="logo">AAA</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button id="theme-toggle" aria-label="Toggle Theme" style="background: none; border: none; cursor: pointer; color: var(--text-light); font-size: 1.2rem; display: flex; padding: 0.5rem;">
+                    <svg id="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <svg id="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
+                <button class="menu-btn" aria-label="Toggle navigation">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1 style="text-align: center; margin-bottom: 3rem;">Academic Journey</h1>
+        
+        <div class="timeline">
+            <!-- Timeline Item 1 -->
+            <div class="timeline-item left">
+                <div class="glass-card spotlight-card" style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 15px; border: 1px solid var(--card-border); padding: 2rem !important; transition: all 0.3s ease; background: var(--card-bg);">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; font-family: monospace; font-size: 0.8rem;">
+                            <span style="color: var(--primary-color); font-weight: bold;">[EDU.01]</span>
+                            <span style="color: var(--primary-color); background: rgba(16, 185, 129, 0.08); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 700; letter-spacing: 0.5px;">CURRENT</span>
+                        </div>
+                        <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text-light); margin-bottom: 0.5rem; font-family: 'Roboto Flex', sans-serif;">Bachelor of Cyber Security</h3>
+                        <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--primary-color); font-weight: 600; font-size: 0.92rem; margin-bottom: 1.2rem; flex-wrap: wrap;">
+                            <span>Universiti Teknikal Melaka Malaysia</span>
+                            <span style="color: var(--text-muted-dark);">|</span>
+                            <span>2025 - Present</span>
+                        </div>
+                        <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-muted-dark); margin-bottom: 1.5rem;">
+                            Pursuing my major in Cyber Security at UTeM, focusing on digital forensics, cryptography, network security, and secure software engineering while consistently maintaining a high GPA.
+                        </p>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 0.8rem; border-top: 1px solid var(--border-light); padding-top: 1.2rem; color: var(--text-light); margin-top: auto;">
+                        <span style="color: var(--text-muted-dark);">STATUS</span>
+                        <span style="color: var(--primary-color); font-weight: bold; letter-spacing: 1px;">EXCELLENT GPA [■■■■■■■■■■■■■■■□]</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline Item 2 -->
+            <div class="timeline-item right">
+                <div class="glass-card spotlight-card" style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 15px; border: 1px solid var(--card-border); padding: 2rem !important; transition: all 0.3s ease; background: var(--card-bg);">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; font-family: monospace; font-size: 0.8rem;">
+                            <span style="color: var(--primary-color); font-weight: bold;">[EDU.02]</span>
+                            <span style="color: var(--primary-color); background: rgba(16, 185, 129, 0.08); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 700; letter-spacing: 0.5px;">COMPLETED</span>
+                        </div>
+                        <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text-light); margin-bottom: 0.5rem; font-family: 'Roboto Flex', sans-serif;">Foundation Studies in Physical Science</h3>
+                        <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--primary-color); font-weight: 600; font-size: 0.92rem; margin-bottom: 1.2rem; flex-wrap: wrap;">
+                            <span>University of Malaya</span>
+                            <span style="color: var(--text-muted-dark);">|</span>
+                            <span>2024 - 2025</span>
+                        </div>
+                        <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-muted-dark); margin-bottom: 1.5rem;">
+                            Completed my Foundation Studies in Physical Science, sharpening the core mathematical and analytical problem-solving skills that paved the way for my current degree at UTeM.
+                        </p>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 0.8rem; border-top: 1px solid var(--border-light); padding-top: 1.2rem; color: var(--text-light); margin-top: auto;">
+                        <span style="color: var(--text-muted-dark);">CORE SKILLS</span>
+                        <span style="color: var(--primary-color); font-weight: bold; letter-spacing: 1px;">MATHS & ANALYTICAL THINKING</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline Item 3 -->
+            <div class="timeline-item left">
+                <div class="glass-card spotlight-card" style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 15px; border: 1px solid var(--card-border); padding: 2rem !important; transition: all 0.3s ease; background: var(--card-bg);">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; font-family: monospace; font-size: 0.8rem;">
+                            <span style="color: var(--primary-color); font-weight: bold;">[EDU.03]</span>
+                            <span style="color: var(--primary-color); background: rgba(16, 185, 129, 0.08); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 700; letter-spacing: 0.5px;">COMPLETED</span>
+                        </div>
+                        <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text-light); margin-bottom: 0.5rem; font-family: 'Roboto Flex', sans-serif;">Science Stream</h3>
+                        <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--primary-color); font-weight: 600; font-size: 0.92rem; margin-bottom: 1.2rem; flex-wrap: wrap;">
+                            <span>Hulu Selangor Science School</span>
+                            <span style="color: var(--text-muted-dark);">|</span>
+                            <span>2019 - 2024</span>
+                        </div>
+                        <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-muted-dark); margin-bottom: 1.5rem;">
+                            Graduated with Honors, showcasing a strong academic track record highlighted by an excellent SPM performance of 5A+, 3A, and 1B+.
+                        </p>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 0.8rem; border-top: 1px solid var(--border-light); padding-top: 1.2rem; color: var(--text-light); margin-top: auto;">
+                        <span style="color: var(--text-muted-dark);">ACCOLADES</span>
+                        <span style="color: var(--primary-color); font-weight: bold; letter-spacing: 1px;">HONORS & 5A+, 3A, 1B+</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ahmad Ainul Afeeq. Built for Portfolio.</p>
+    </footer>
+</body>
+</html>

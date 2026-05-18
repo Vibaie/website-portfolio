@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Ahmad Ainul Afeeq's Portfolio</title>
+    <meta name="description"
+        content="Personal digital portfolio of Ahmad Ainul Afeeq, showcasing academic history, works, and personal qualities.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,75..150,100..1000&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="LiquidEther.js"></script>
+    <script src="TextPressure.js"></script>
+    <script src="script.js" defer></script>
+    <style>
+        /* This makes the page glide smoothly when clicking nav links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Adds a little breathing room so the fixed header doesn't cover section titles */
+        section {
+            scroll-margin-top: 80px;
+            margin-bottom: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loader-wrapper"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--bg-gray); z-index: 99999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.7s ease;">
+        <div style="width: 80%; max-width: 420px; text-align: center;">
+            <p style="font-size: 1rem; color: var(--text-muted-dark); margin-bottom: 0.3rem; letter-spacing: 1px;">
+                Welcome to My</p>
+            <h2
+                style="font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: var(--text-light); margin-bottom: 0.4rem; letter-spacing: -0.5px;">
+                Portfolio Website</h2>
+
+            <div style="width: 100%; text-align: left; font-family: monospace;">
+                <p id="loader-text"
+                    style="color: var(--text-muted-dark); margin-bottom: 8px; min-height: 18px; font-size: 0.78rem;">
+                    [SYSTEM INIT] Boot sequence started...</p>
+                <div
+                    style="width: 100%; height: 3px; background: var(--border-dark); border-radius: 2px; overflow: hidden;">
+                    <div id="loader-bar"
+                        style="width: 0%; height: 100%; background: var(--primary-color); transition: width 0.1s linear;">
+                    </div>
+                </div>
+                <p style="color: var(--primary-color); margin-top: 6px; font-size: 0.78rem; text-align: right;"><span
+                        id="loader-percent">0</span>%</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="liquid-bg" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;">
+    </div>
+    <div id="scroll-progress"></div>
+
+    <header>
+        <nav>
+            <div class="logo">AAA</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button id="theme-toggle" aria-label="Toggle Theme"
+                    style="background: none; border: none; cursor: pointer; color: var(--text-light); font-size: 1.2rem; display: flex; padding: 0.5rem;">
+                    <svg id="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="menu-btn" aria-label="Toggle navigation">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- TextPressure Banner — no bento box wrapper -->
+        <div id="text-pressure-banner"
+            style="width:100%;padding:calc(70px + 2.5rem) 4rem 3rem;box-sizing:border-box;pointer-events:none;">
+            <div id="text-pressure-mount" style="height:clamp(70px,12vw,140px);width:100%;"></div>
+        </div>
+
+        <section id="home" class="bento-box box-dark grid-2 slide-in-right"
+            style="align-items: center; min-height: 70vh;">
+            <div class="hero-content" style="text-align: left;">
+                <p
+                    style="font-size: 1.1rem; color: var(--text-muted-dark); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 2px;">
+                    Hi im</p>
+                <h1
+                    style="font-size: clamp(2.25rem, 5.5vw, 4.5rem); font-weight: 900; margin-bottom: 1.5rem; line-height: 1.2; letter-spacing: -0.05em; white-space: nowrap;">
+                    <div class="typing-name" style="display: inline-block;"><span
+                            style="color: transparent; background-clip: text; -webkit-background-clip: text; background-image: linear-gradient(to right, #34d399, #10b981, #06b6d4);">Ahmad
+                            Ainul Afeeq</span></div>
+                </h1>
+
+                <p style="font-size: 1.5rem; min-height: 2.5rem; margin-bottom: 2.5rem; font-weight: 600;">
+                    &gt; <span id="dynamic-text" style="color: var(--secondary-color);"></span><span class="cursor"
+                        style="color: var(--secondary-color);">_</span>
+                </p>
+
+                <div class="actions" style="display: flex; gap: 1rem; justify-content: flex-start; flex-wrap: wrap;">
+                    <a href="#experience" class="btn btn-primary">View Experience</a>
+                    <a href="#skills" class="btn btn-secondary">View Skills</a>
+                </div>
+
+                <div class="social-links" style="display: flex; gap: 1.5rem; margin-top: 2rem;">
+                    <a href="#" class="social-icon" aria-label="GitHub">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                <div id="hero-terminal"
+                    style="width: 100%; max-width: 450px; height: 300px; background: var(--bg-gray); border: 1px solid var(--border-light); border-radius: 8px; overflow-y: hidden; position: relative; font-family: monospace; font-size: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); display: flex; flex-direction: column;">
+                    <div
+                        style="background: var(--border-dark); padding: 10px 15px; display: flex; gap: 8px; border-bottom: 1px solid var(--border-light);">
+                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56;"></div>
+                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e;"></div>
+                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #27c93f;"></div>
+                    </div>
+                    <div id="terminal-content"
+                        style="padding: 16px; color: var(--text-muted-dark); line-height: 1.6; white-space: pre-wrap; word-break: break-all; overflow-y: hidden; flex: 1; display: flex; flex-direction: column; justify-content: flex-end;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="bento-box box-dark slide-in-right">
+            <div style="display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;">
+                <div style="flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                    <div
+                        style="width: 180px; height: 180px; border-radius: 50%; padding: 3px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); box-shadow: 0 0 30px rgba(16,185,129,0.2);">
+                        <div
+                            style="width: 100%; height: 100%; border-radius: 50%; overflow: hidden; border: 3px solid var(--bg-dark); box-sizing: border-box;">
+                            <img src="assets/images/profile-picture.png" alt="Ahmad Ainul Afeeq"
+                                style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.8) translateX(2%) translateY(-4%);">
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="font-weight: 700; font-size: 1rem; margin-bottom: 0.1rem; color: var(--text-light);">
+                            Ahmad Ainul Afeeq</p>
+                        <p
+                            style="font-size: 0.8rem; color: var(--primary-color); font-family: monospace; margin: 0; letter-spacing: 1px;">
+                            Cyber Security Student</p>
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 260px; text-align: left;">
+                    <h2 style="color: var(--primary-color); margin-bottom: 1rem; font-size: 1.8rem;">About Me</h2>
+                    <p
+                        style="font-size: 1.05rem; line-height: 1.8; color: var(--text-muted-dark); margin-bottom: 1.5rem;">
+                        I'm a Cyber Security student at UTeM with a passion for digital security, threat analysis, and
+                        building safe, human-centered systems. I thrive on solving complex problems and continuously
+                        learning in the evolving tech landscape.
+                    </p>
+                    <div style="display: flex; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                        <div>
+                            <p style="font-size: 1.4rem; font-weight: 800; color: var(--text-light); margin: 0;">UTeM
+                            </p>
+                            <p
+                                style="font-size: 0.78rem; color: var(--text-muted-dark); margin: 0; letter-spacing: 1px;">
+                                University</p>
+                        </div>
+                        <div style="width: 1px; background: var(--border-dark);"></div>
+                        <div>
+                            <p style="font-size: 1.4rem; font-weight: 800; color: var(--text-light); margin: 0;">2025
+                            </p>
+                            <p
+                                style="font-size: 0.78rem; color: var(--text-muted-dark); margin: 0; letter-spacing: 1px;">
+                                Enrolled</p>
+                        </div>
+                        <div style="width: 1px; background: var(--border-dark);"></div>
+                        <div>
+                            <p style="font-size: 1.4rem; font-weight: 800; color: var(--text-light); margin: 0;">CS</p>
+                            <p
+                                style="font-size: 0.78rem; color: var(--text-muted-dark); margin: 0; letter-spacing: 1px;">
+                                Field</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="assets/documents/CV_Ahmad_Ainul_Afeeq.pdf" class="btn btn-primary" download>Download CV</a>
+                        <a href="#skills" class="btn btn-secondary">My Skills</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="bento-box box-dark slide-in-right">
+            <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary-color);">Skills</h2>
+
+            <div class="glass-card" style="margin-bottom: 2rem; padding: 2.5rem !important;">
+                <h2
+                    style="color: var(--primary-color); margin-bottom: 2rem; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem;">
+                    Soft Skills</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+
+                    <!-- Skill 1: Problem Solving -->
+                    <div class="glass-card spotlight-card"
+                        style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 12px; border: 1px solid var(--card-border); padding: 1.5rem !important; transition: all 0.3s ease; background: var(--card-bg);">
+                        <div>
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-family: monospace; font-size: 0.8rem;">
+                                <span style="color: var(--primary-color); font-weight: bold;">[CORE.01]</span>
+                                <span
+                                    style="color: var(--primary-color); background: rgba(16, 185, 129, 0.08); padding: 0.2rem 0.5rem; border-radius: 4px;">ONLINE</span>
+                            </div>
+                            <h3
+                                style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; font-family: 'Roboto Flex', sans-serif;">
+                                Problem Solving</h3>
+                            <p
+                                style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted-dark); margin-bottom: 1.5rem;">
+                                Deconstructing complex challenges into clear, structured solutions.
+                            </p>
+                        </div>
+                        <div>
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 0.8rem; margin-bottom: 0.4rem; color: var(--text-light);">
+                                <span>INTELLIGENCE</span>
+                                <span>94%</span>
+                            </div>
+                            <div
+                                style="font-family: monospace; font-size: 0.85rem; letter-spacing: 2px; color: var(--primary-color);">
+                                [■■■■■■■■■■■■■■□□]
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 2: Collaboration -->
+                    <div class="glass-card spotlight-card"
+                        style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 12px; border: 1px solid var(--card-border); padding: 1.5rem !important; transition: all 0.3s ease; background: var(--card-bg);">
+                        <div>
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-family: monospace; font-size: 0.8rem;">
+                                <span style="color: var(--primary-color); font-weight: bold;">[CORE.02]</span>
+                                <span
+                                    style="color: var(--primary-color); background: rgba(16, 185, 129, 0.08); padding: 0.2rem 0.5rem; border-radius: 4px;">ACTIVE</span>
+                            </div>
+                            <h3
+                                style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; font-family: 'Roboto Flex', sans-serif;">
+                                Collaboration</h3>
+                            <p
+                                style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted-dark); margin-bottom: 1.5rem;">
+                                Seamless collaboration in agile development operations and team CTFs.
+                            </p>
+                        </div>
+                        <div>
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 0.8rem; margin-bottom: 0.4rem; color: var(--text-light);">
+                                <span>TEAMWORK</span>
+                                <span>88%</span>
+                            </div>
+                            <div
+                                style="font-family: monospace; font-size: 0.85rem; letter-spacing: 2px; color: var(--primary-color);">
+                                [■■■■■■■■■■■■■□□□]
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 3: Adaptability -->
+                    <div class="glass-card spotlight-card"
+                        style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 12px; border: 1px solid var(--card-border); padding: 1.5rem !important; transition: all 0.3s ease; background: var(--card-bg);">
+                        <div>
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-family: monospace; font-size: 0.8rem;">
+                                <span style="color: var(--primary-color); font-weight: bold;">[CORE.03]</span>
+                                <span
+                                    style="color: var(--primary-color); background: rgba(16, 185, 129, 0.08); padding: 0.2rem 0.5rem; border-radius: 4px;">OPTIMIZED</span>
+                            </div>
+                            <h3
+                                style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; font-family: 'Roboto Flex', sans-serif;">
+                                Adaptability</h3>
+                            <p
+                                style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted-dark); margin-bottom: 1.5rem;">
+                                Swift integration of modern frameworks and changing tech environments.
+                            </p>
+                        </div>
+                        <div>
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 0.8rem; margin-bottom: 0.4rem; color: var(--text-light);">
+                                <span>AGILITY</span>
+                                <span>90%</span>
+                            </div>
+                            <div
+                                style="font-family: monospace; font-size: 0.85rem; letter-spacing: 2px; color: var(--primary-color);">
+                                [■■■■■■■■■■■■■■□□]
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 4: Communication -->
+                    <div class="glass-card spotlight-card"
+                        style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 12px; border: 1px solid var(--card-border); padding: 1.5rem !important; transition: all 0.3s ease; background: var(--card-bg);">
+                        <div>
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-family: monospace; font-size: 0.8rem;">
+                                <span style="color: var(--primary-color); font-weight: bold;">[CORE.04]</span>
+                                <span
+                                    style="color: var(--primary-color); background: rgba(16, 185, 129, 0.08); padding: 0.2rem 0.5rem; border-radius: 4px;">STABLE</span>
+                            </div>
+                            <h3
+                                style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; font-family: 'Roboto Flex', sans-serif;">
+                                Communication</h3>
+                            <p
+                                style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted-dark); margin-bottom: 1.5rem;">
+                                Translating high-level technical intelligence into clear documentation.
+                            </p>
+                        </div>
+                        <div>
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 0.8rem; margin-bottom: 0.4rem; color: var(--text-light);">
+                                <span>DISCOURSE</span>
+                                <span>85%</span>
+                            </div>
+                            <div
+                                style="font-family: monospace; font-size: 0.85rem; letter-spacing: 2px; color: var(--primary-color);">
+                                [■■■■■■■■■■■■□□□□]
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <h2
+                    class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 mb-8 text-center tracking-tight">
+                    Tools & Tech Stack
+                </h2>
+
+                <h3
+                    style="font-size: 1.1rem; color: var(--text-light); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem; text-align: center;">
+                    Programming & Markup</h3>
+                <div class="tech-grid" style="margin-bottom: 2.5rem;">
+                    <div class="tech-badge">
+                        <img src="assets/images/python.png" alt="Python">
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="assets/images/javascript.png" alt="JavaScript">
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="assets/images/c++.png" alt="C++">
+                        <span>C++</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="assets/images/reactjs.png" alt="React Bits">
+                        <span>React Bits</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="assets/images/html.png" alt="HTML">
+                        <span>HTML</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="assets/images/css.png" alt="CSS">
+                        <span>CSS</span>
+                    </div>
+                </div>
+
+                <h3
+                    style="font-size: 1.1rem; color: var(--text-light); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem; text-align: center;">
+                    Environments & Tools</h3>
+                <div class="tech-grid" style="margin-bottom: 2.5rem;">
+                    <div class="tech-badge">
+                        <img src="assets/images/kali-linux.png" alt="Kali Linux">
+                        <span>Kali Linux</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="assets/images/vs22.png" alt="VS 2022">
+                        <span>VS 2022</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="assets/images/github.png" alt="GitHub">
+                        <span>GitHub</span>
+                    </div>
+                </div>
+
+                <h3
+                    style="font-size: 1.1rem; color: var(--text-light); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem; text-align: center;">
+                    Creative & Utilities</h3>
+                <div class="tech-grid" style="margin-bottom: 2.5rem;">
+                    <div class="tech-badge">
+                        <img src="assets/images/figma.png" alt="Figma">
+                        <span>Figma</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="assets/images/canva.png" alt="Canva">
+                        <span>Canva</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="assets/images/sony.png" alt="Sony Vegas Pro">
+                        <span>Vegas Pro</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="assets/images/claude.png" alt="Claude AI">
+                        <span>Claude</span>
+                    </div>
+                    <div class="tech-badge" style="border-color: rgba(59, 130, 246, 0.4);">
+                        <img src="assets/images/antigravity.png" alt="Antigravity">
+                        <span>Antigravity</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card" style="margin-top: 2rem; text-align: center; padding: 2.5rem !important;">
+                <h2 style="margin-bottom: 0.5rem;">Hobbies & Interests</h2>
+                <p style="color: var(--text-muted-dark); max-width: 600px; margin: 0 auto 2rem; font-size: 1.05rem;">
+                    When I'm not auditing code or designing apps, you can explore my favorite off-duty games, creative
+                    outlets, and technical hobbies.
+                </p>
+                <div id="circular-gallery-container"
+                    style="height: 500px; width: 100%; position: relative; overflow: hidden; border-radius: 15px; background: rgba(5, 5, 5, 0.4); border: 1px solid var(--border-light);">
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="bento-box box-dark slide-in-right">
+            <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary-color);">Academic Journey</h2>
+
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="glass-card spotlight-card" style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 15px; border: 1px solid var(--card-border); padding: 2rem !important; transition: all 0.3s ease; background: var(--card-bg);">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; font-family: monospace; font-size: 0.8rem;">
+                                <span style="color: var(--primary-color); font-weight: bold;">[EDU.01]</span>
+                                <span style="color: var(--primary-color); background: rgba(16, 185, 129, 0.08); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 700; letter-spacing: 0.5px;">CURRENT</span>
+                            </div>
+                            <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text-light); margin-bottom: 0.5rem; font-family: 'Roboto Flex', sans-serif;">Bachelor of Cyber Security</h3>
+                            <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--primary-color); font-weight: 600; font-size: 0.92rem; margin-bottom: 1.2rem; flex-wrap: wrap;">
+                                <span>Universiti Teknikal Melaka Malaysia</span>
+                                <span style="color: var(--text-muted-dark);">|</span>
+                                <span>2025 - Present</span>
+                            </div>
+                            <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-muted-dark); margin-bottom: 1.5rem;">
+                                Pursuing my major in Cyber Security at UTeM, focusing on digital forensics, cryptography, network security, and secure software engineering while consistently maintaining a high GPA.
+                            </p>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 0.8rem; border-top: 1px solid var(--border-light); padding-top: 1.2rem; color: var(--text-light); margin-top: auto;">
+                            <span style="color: var(--text-muted-dark);">STATUS</span>
+                            <span style="color: var(--primary-color); font-weight: bold; letter-spacing: 1px;">EXCELLENT GPA [■■■■■■■■■■■■■■■□]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="glass-card spotlight-card" style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 15px; border: 1px solid var(--card-border); padding: 2rem !important; transition: all 0.3s ease; background: var(--card-bg);">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; font-family: monospace; font-size: 0.8rem;">
+                                <span style="color: var(--primary-color); font-weight: bold;">[EDU.02]</span>
+                                <span style="color: var(--primary-color); background: rgba(16, 185, 129, 0.08); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 700; letter-spacing: 0.5px;">COMPLETED</span>
+                            </div>
+                            <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text-light); margin-bottom: 0.5rem; font-family: 'Roboto Flex', sans-serif;">Foundation Studies in Physical Science</h3>
+                            <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--primary-color); font-weight: 600; font-size: 0.92rem; margin-bottom: 1.2rem; flex-wrap: wrap;">
+                                <span>University of Malaya</span>
+                                <span style="color: var(--text-muted-dark);">|</span>
+                                <span>2024 - 2025</span>
+                            </div>
+                            <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-muted-dark); margin-bottom: 1.5rem;">
+                                Completed my Foundation Studies in Physical Science, sharpening the core mathematical and analytical problem-solving skills that paved the way for my current degree at UTeM.
+                            </p>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 0.8rem; border-top: 1px solid var(--border-light); padding-top: 1.2rem; color: var(--text-light); margin-top: auto;">
+                            <span style="color: var(--text-muted-dark);">CORE SKILLS</span>
+                            <span style="color: var(--primary-color); font-weight: bold; letter-spacing: 1px;">MATHS & ANALYTICAL THINKING</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="glass-card spotlight-card" style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 15px; border: 1px solid var(--card-border); padding: 2rem !important; transition: all 0.3s ease; background: var(--card-bg);">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; font-family: monospace; font-size: 0.8rem;">
+                                <span style="color: var(--primary-color); font-weight: bold;">[EDU.03]</span>
+                                <span style="color: var(--primary-color); background: rgba(16, 185, 129, 0.08); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 700; letter-spacing: 0.5px;">COMPLETED</span>
+                            </div>
+                            <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text-light); margin-bottom: 0.5rem; font-family: 'Roboto Flex', sans-serif;">Science Stream</h3>
+                            <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--primary-color); font-weight: 600; font-size: 0.92rem; margin-bottom: 1.2rem; flex-wrap: wrap;">
+                                <span>Hulu Selangor Science School</span>
+                                <span style="color: var(--text-muted-dark);">|</span>
+                                <span>2019 - 2024</span>
+                            </div>
+                            <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-muted-dark); margin-bottom: 1.5rem;">
+                                Graduated with Honors, showcasing a strong academic track record highlighted by an excellent SPM performance of 5A+, 3A, and 1B+.
+                            </p>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 0.8rem; border-top: 1px solid var(--border-light); padding-top: 1.2rem; color: var(--text-light); margin-top: auto;">
+                            <span style="color: var(--text-muted-dark);">ACCOLADES</span>
+                            <span style="color: var(--primary-color); font-weight: bold; letter-spacing: 1px;">HONORS & 5A+, 3A, 1B+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="bento-box box-dark slide-in-right">
+            <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary-color);">My Experience & Projects
+            </h2>
+
+            <div class="grid-3">
+                <div class="glass-card" style="display: flex; flex-direction: column;">
+                    <div
+                        style="height: 200px; background: rgba(59, 130, 246, 0.2); border-radius: 10px; margin-bottom: 1.5rem; display: flex; justify-content: center; align-items: center; border: 1px solid var(--glass-border);">
+                        <span style="font-size: 3rem;">💻</span>
+                    </div>
+                    <h3>E-Commerce UI Redesign</h3>
+                    <p style="flex: 1;">A conceptual redesign of a popular e-commerce platform focusing on improving
+                        user flow and accessibility.</p>
+                    <div class="tag-container" style="margin-bottom: 1.5rem;">
+                        <span class="tag">Figma</span>
+                        <span class="tag">UI/UX</span>
+                    </div>
+                    <a href="#" class="btn btn-secondary" style="text-align: center;">View Details</a>
+                </div>
+
+                <div class="glass-card" style="display: flex; flex-direction: column;">
+                    <div
+                        style="height: 200px; background: rgba(139, 92, 246, 0.2); border-radius: 10px; margin-bottom: 1.5rem; display: flex; justify-content: center; align-items: center; border: 1px solid var(--glass-border);">
+                        <span style="font-size: 3rem;">📱</span>
+                    </div>
+                    <h3>Habit Tracker App</h3>
+                    <p style="flex: 1;">A mobile application prototype designed to help users build and maintain
+                        positive daily habits with gamification elements.</p>
+                    <div class="tag-container" style="margin-bottom: 1.5rem;">
+                        <span class="tag">React Native</span>
+                        <span class="tag">Design System</span>
+                    </div>
+                    <a href="#" class="btn btn-secondary" style="text-align: center;">View Details</a>
+                </div>
+
+                <div class="glass-card" style="display: flex; flex-direction: column;">
+                    <div
+                        style="height: 200px; background: rgba(16, 185, 129, 0.2); border-radius: 10px; margin-bottom: 1.5rem; display: flex; justify-content: center; align-items: center; border: 1px solid var(--glass-border);">
+                        <span style="font-size: 3rem;">🌐</span>
+                    </div>
+                    <h3>Local Cafe Website</h3>
+                    <p style="flex: 1;">A fully responsive website developed for a local cafe, integrating an online
+                        menu and booking system.</p>
+                    <div class="tag-container" style="margin-bottom: 1.5rem;">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </div>
+            </div> <!-- Close grid-3 project container -->
+
+            <!-- Certificate Subsection -->
+            <div class="certificate-section"
+                style="margin-top: 5rem; border-top: 1px solid var(--border-light); padding-top: 4rem;">
+                <h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-color);">My Certificates</h2>
+                <p
+                    style="text-align: center; color: var(--text-muted-dark); max-width: 600px; margin: 0 auto 3rem; font-size: 1.05rem;">
+                    Official credentials, training completions, and CTF competition achievements in cyber security and
+                    software engineering.
+                </p>
+
+                <!-- Filter tags -->
+                <div class="filter-tags">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="ctf">CTFs</button>
+                    <button class="filter-btn" data-filter="university">University</button>
+                    <button class="filter-btn" data-filter="cybersecurity">Cyber Security</button>
+                </div>
+
+                <!-- Certificates Grid -->
+                <div class="certificates-grid">
+                    <!-- Cert 1: Taming iCTFF8 -->
+                    <div class="glass-card spotlight-card cert-card" data-category="ctf university cybersecurity"
+                        data-orientation="landscape" data-title="8th UiTM Capture The Flag Taming iCTFF8"
+                        data-file="assets/documents/taming-ictff8.pdf">
+                        <div class="cert-card-header">
+                            <span class="cert-tag">CTF &middot; University</span>
+                            <span class="cert-icon">🛡️</span>
+                        </div>
+                        <div class="cert-card-body">
+                            <h3>8th UiTM Capture The Flag Taming iCTFF8</h3>
+                            <div class="cert-issuer">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                    <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+                                </svg>
+                                UiTM Universiti Teknologi MARA
+                            </div>
+                        </div>
+                        <div class="cert-card-footer">
+                            <span class="cert-date">2026</span>
+                            <div class="cert-actions">
+                                <a href="assets/documents/taming-ictff8.pdf" download="taming-ictff8.pdf" class="cert-action-btn"
+                                    title="Download PDF" onclick="event.stopPropagation();">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cert 2: HTB University CTF 2025 -->
+                    <div class="glass-card spotlight-card cert-card" data-category="ctf cybersecurity"
+                        data-orientation="landscape" data-title="HTB University CTF 2025"
+                        data-file="assets/documents/htb-university.pdf">
+                        <div class="cert-card-header">
+                            <span class="cert-tag">CTF &middot; Cyber Security</span>
+                            <span class="cert-icon">🔑</span>
+                        </div>
+                        <div class="cert-card-body">
+                            <h3>HTB University CTF 2025</h3>
+                            <div class="cert-issuer">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                                Hack The Box
+                            </div>
+                        </div>
+                        <div class="cert-card-footer">
+                            <span class="cert-date">2025</span>
+                            <div class="cert-actions">
+                                <a href="assets/documents/htb-university.pdf" download="htb-university.pdf" class="cert-action-btn"
+                                    title="Download PDF" onclick="event.stopPropagation();">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cert 3: UMCS CTF 2026 -->
+                    <div class="glass-card spotlight-card cert-card" data-category="ctf university cybersecurity"
+                        data-orientation="landscape" data-title="UMCS CTF 2026" data-file="assets/documents/umcs-ctf-2026.pdf">
+                        <div class="cert-card-header">
+                            <span class="cert-tag">CTF &middot; University</span>
+                            <span class="cert-icon">🎓</span>
+                        </div>
+                        <div class="cert-card-body">
+                            <h3>UMCS CTF 2026</h3>
+                            <div class="cert-issuer">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                    <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+                                </svg>
+                                UMCS University Malaya Computer Society
+                            </div>
+                        </div>
+                        <div class="cert-card-footer">
+                            <span class="cert-date">2026</span>
+                            <div class="cert-actions">
+                                <a href="assets/documents/umcs-ctf-2026.pdf" download="umcs-ctf-2026.pdf" class="cert-action-btn"
+                                    title="Download PDF" onclick="event.stopPropagation();">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificate Preview Modal -->
+            <div id="certModal" class="cert-modal">
+                <div id="certModalContainer" class="cert-modal-container">
+                    <div class="cert-modal-header">
+                        <div id="certModalTitle" class="cert-modal-title">Certificate Preview</div>
+                        <button id="certModalClose" class="cert-modal-close" aria-label="Close Preview">&times;</button>
+                    </div>
+                    <div class="cert-modal-body">
+                        <iframe id="certModalIframe" src="" style="width: 100%; height: 100%; border: none;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Full-Width Contrast Separation Contact Section -->
+    <section id="contact" class="full-width-contact slide-in-right">
+        <div class="contact-container">
+            <div class="grid-2" style="align-items: center; gap: 3rem;">
+                <!-- Left Column: Elegant Contact Information -->
+                <div style="display: flex; flex-direction: column; justify-content: center; text-align: left;">
+                    <p
+                        style="font-size: 1.1rem; color: var(--primary-color); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 2px; font-family: monospace;">
+                        Get in Touch</p>
+                    <h3
+                        style="font-size: 2.5rem; font-weight: 800; margin-bottom: 2.2rem; font-family: 'Roboto Flex', sans-serif;">
+                        Let's collaborate on your next digital project.</h3>
+
+                    <!-- Premium Holographic ProfileCard mount point -->
+                    <div id="profile-card-mount"
+                        style="width: 100%; display: flex; justify-content: flex-start; margin-bottom: 2.5rem;"></div>
+
+                    <div
+                        style="display: flex; flex-direction: column; gap: 1.2rem; font-family: monospace; font-size: 1.05rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: var(--primary-color); font-weight: bold;">[EMAIL]</span>
+                            <span>ahmadainulafeeq@example.com</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: var(--primary-color); font-weight: bold;">[PHONE]</span>
+                            <span>+60 17-635-5417</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: var(--primary-color); font-weight: bold;">[LOC]</span>
+                            <span>Kuala Lumpur, Malaysia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Minimalist Contact Title and baseline-border Form -->
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                    <h2
+                        style="font-size: 3rem; font-weight: 800; text-align: left; margin-bottom: 2rem; color: var(--contact-text); font-family: 'Roboto Flex', sans-serif;">
+                        Contact</h2>
+                    <form id="contactForm" class="minimal-form">
+                        <div class="minimal-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name">
+                        </div>
+
+                        <div class="minimal-group">
+                            <label for="email">Your email</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+
+                        <div class="minimal-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required placeholder="Project Collaboration">
+                        </div>
+
+                        <div class="minimal-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="4" required
+                                placeholder="Let's build something awesome together!"></textarea>
+                        </div>
+
+                        <button type="submit" class="minimal-send-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                            Send
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer
+        style="display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 2.5rem 2rem 3rem; border-top: 1px solid var(--contact-card-border); background-color: var(--contact-bg); color: var(--contact-text); transition: background-color var(--transition-speed), color var(--transition-speed); width: 100vw; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); box-sizing: border-box; margin-top: 0 !important; margin-bottom: 0 !important;">
+        <p style="margin: 0; color: var(--contact-text-muted); font-size: 0.9rem;">&copy; 2026 Ahmad Ainul Afeeq. Built
+            for Portfolio.</p>
+        <div id="visitor-counter"
+            style="display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.3); padding: 0.4rem 1rem; border-radius: 30px; font-size: 0.8rem; font-family: monospace; color: var(--primary-color); box-shadow: 0 0 15px rgba(16, 185, 129, 0.02); transition: all 0.3s ease;">
+            <span
+                style="display: inline-block; width: 8px; height: 8px; background-color: var(--primary-color); border-radius: 50%; box-shadow: 0 0 8px var(--primary-color); animation: blinker 1.5s linear infinite;"></span>
+            <span style="letter-spacing: 1px; color: var(--contact-text-muted); font-weight: 600;">SYSTEM HITS:</span>
+            <span id="visitor-count-val"
+                style="font-weight: 700; letter-spacing: 1.5px; color: var(--primary-color);">000000</span>
+        </div>
+    </footer>
+</body>
+
+</html>
