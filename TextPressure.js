@@ -17,7 +17,7 @@
       '.tp-title{margin:0;text-align:center;user-select:none;white-space:nowrap;',
       'width:100%;display:flex;justify-content:space-between;',
       'text-transform:uppercase;transform-origin:center top;font-weight:100;}',
-      '.tp-title span{display:inline-block;will-change:font-variation-settings;}'
+      '.tp-title span{display:inline-block;will-change:font-variation-settings;font-family:\'Roboto Flex\', sans-serif !important;}'
     ].join('');
     document.head.appendChild(s);
   })();
