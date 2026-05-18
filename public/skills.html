@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills | Ahmad Ainul Afeeq</title>
+    <meta name="description" content="Personal qualities, skills, and hobbies of Ahmad Ainul Afeeq.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <canvas id="particle-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; opacity: 0.8;"></canvas>
+    <div id="scroll-progress"></div>
+
+    <header>
+        <nav>
+            <div class="logo">AAA</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button id="theme-toggle" aria-label="Toggle Theme" style="background: none; border: none; cursor: pointer; color: var(--text-light); font-size: 1.2rem; display: flex; padding: 0.5rem;">
+                    <svg id="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <svg id="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
+                <button class="menu-btn" aria-label="Toggle navigation">☰</button>
+            </div>
+        </nav>
+    </header>    <main>
+        <h1 style="text-align: center; margin-bottom: 3rem;">Skills</h1>
+        
+        <div class="grid-2">
+            <!-- Soft Skills -->
+            <div class="glass-card" style="padding: 2.5rem !important;">
+                <h2 style="color: var(--primary-color); margin-bottom: 2rem; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem;">Soft Skills</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+                    
+                    <!-- Skill 1: Problem Solving -->
+                    <div class="glass-card spotlight-card" style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 12px; border: 1px solid var(--card-border); padding: 1.5rem !important; transition: all 0.3s ease; background: var(--card-bg);">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-family: monospace; font-size: 0.8rem;">
+                                <span style="color: var(--primary-color); font-weight: bold;">[CORE.01]</span>
+                                <span style="color: var(--primary-color); background: rgba(16, 185, 129, 0.08); padding: 0.2rem 0.5rem; border-radius: 4px;">ONLINE</span>
+                            </div>
+                            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; font-family: 'Roboto Flex', sans-serif;">Problem Solving</h3>
+                            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted-dark); margin-bottom: 1.5rem;">
+                                Deconstructing complex challenges into clear, structured solutions.
+                            </p>
+                        </div>
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 0.8rem; margin-bottom: 0.4rem; color: var(--text-light);">
+                                <span>INTELLIGENCE</span>
+                                <span>94%</span>
+                            </div>
+                            <div style="font-family: monospace; font-size: 0.85rem; letter-spacing: 2px; color: var(--primary-color);">
+                                [■■■■■■■■■■■■■■□□]
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 2: Collaboration -->
+                    <div class="glass-card spotlight-card" style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 12px; border: 1px solid var(--card-border); padding: 1.5rem !important; transition: all 0.3s ease; background: var(--card-bg);">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-family: monospace; font-size: 0.8rem;">
+                                <span style="color: var(--primary-color); font-weight: bold;">[CORE.02]</span>
+                                <span style="color: var(--primary-color); background: rgba(16, 185, 129, 0.08); padding: 0.2rem 0.5rem; border-radius: 4px;">ACTIVE</span>
+                            </div>
+                            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; font-family: 'Roboto Flex', sans-serif;">Collaboration</h3>
+                            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted-dark); margin-bottom: 1.5rem;">
+                                Seamless collaboration in agile development operations and team CTFs.
+                            </p>
+                        </div>
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 0.8rem; margin-bottom: 0.4rem; color: var(--text-light);">
+                                <span>TEAMWORK</span>
+                                <span>88%</span>
+                            </div>
+                            <div style="font-family: monospace; font-size: 0.85rem; letter-spacing: 2px; color: var(--primary-color);">
+                                [■■■■■■■■■■■■■□□□]
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 3: Adaptability -->
+                    <div class="glass-card spotlight-card" style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 12px; border: 1px solid var(--card-border); padding: 1.5rem !important; transition: all 0.3s ease; background: var(--card-bg);">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-family: monospace; font-size: 0.8rem;">
+                                <span style="color: var(--primary-color); font-weight: bold;">[CORE.03]</span>
+                                <span style="color: var(--primary-color); background: rgba(16, 185, 129, 0.08); padding: 0.2rem 0.5rem; border-radius: 4px;">OPTIMIZED</span>
+                            </div>
+                            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; font-family: 'Roboto Flex', sans-serif;">Adaptability</h3>
+                            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted-dark); margin-bottom: 1.5rem;">
+                                Swift integration of modern frameworks and changing tech environments.
+                            </p>
+                        </div>
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 0.8rem; margin-bottom: 0.4rem; color: var(--text-light);">
+                                <span>AGILITY</span>
+                                <span>90%</span>
+                            </div>
+                            <div style="font-family: monospace; font-size: 0.85rem; letter-spacing: 2px; color: var(--primary-color);">
+                                [■■■■■■■■■■■■■■□□]
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 4: Communication -->
+                    <div class="glass-card spotlight-card" style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 12px; border: 1px solid var(--card-border); padding: 1.5rem !important; transition: all 0.3s ease; background: var(--card-bg);">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-family: monospace; font-size: 0.8rem;">
+                                <span style="color: var(--primary-color); font-weight: bold;">[CORE.04]</span>
+                                <span style="color: var(--primary-color); background: rgba(16, 185, 129, 0.08); padding: 0.2rem 0.5rem; border-radius: 4px;">STABLE</span>
+                            </div>
+                            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; font-family: 'Roboto Flex', sans-serif;">Communication</h3>
+                            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted-dark); margin-bottom: 1.5rem;">
+                                Translating high-level technical intelligence into clear documentation.
+                            </p>
+                        </div>
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 0.8rem; margin-bottom: 0.4rem; color: var(--text-light);">
+                                <span>DISCOURSE</span>
+                                <span>85%</span>
+                            </div>
+                            <div style="font-family: monospace; font-size: 0.85rem; letter-spacing: 2px; color: var(--primary-color);">
+                                [■■■■■■■■■■■■□□□□]
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Technical Tech Stack (Visual Badges Grid) -->
+            <div class="glass-card" style="padding: 2.5rem !important;">
+                <h2 style="color: var(--secondary-color); margin-bottom: 2rem; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem;">Tools & Tech Stack</h2>
+                <div class="tech-grid" style="display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: center; margin-top: 1.5rem; width: 100%;">
+                    
+                    <div class="tech-badge animate-reveal">
+                        <img src="assets/images/python.png" alt="Python">
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-badge animate-reveal">
+                        <img src="assets/images/javascript.png" alt="JavaScript">
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="tech-badge animate-reveal">
+                        <img src="assets/images/c++.png" alt="C++">
+                        <span>C++</span>
+                    </div>
+                    <div class="tech-badge animate-reveal">
+                        <img src="assets/images/html.png" alt="HTML">
+                        <span>HTML</span>
+                    </div>
+                    <div class="tech-badge animate-reveal">
+                        <img src="assets/images/css.png" alt="CSS">
+                        <span>CSS</span>
+                    </div>
+                    <div class="tech-badge animate-reveal">
+                        <img src="assets/images/reactjs.png" alt="React Bits">
+                        <span>React Bits</span>
+                    </div>
+                    <div class="tech-badge animate-reveal">
+                        <img src="assets/images/kali-linux.png" alt="Kali Linux">
+                        <span>Kali Linux</span>
+                    </div>
+                    <div class="tech-badge animate-reveal">
+                        <img src="assets/images/vs22.png" alt="VS 2022">
+                        <span>VS 2022</span>
+                    </div>
+                    <div class="tech-badge animate-reveal">
+                        <img src="assets/images/github.png" alt="GitHub">
+                        <span>GitHub</span>
+                    </div>
+                    <div class="tech-badge animate-reveal">
+                        <img src="assets/images/figma.png" alt="Figma">
+                        <span>Figma</span>
+                    </div>
+                    <div class="tech-badge animate-reveal">
+                        <img src="assets/images/canva.png" alt="Canva">
+                        <span>Canva</span>
+                    </div>
+                    <div class="tech-badge animate-reveal">
+                        <img src="assets/images/sony.png" alt="Sony Vegas Pro">
+                        <span>Vegas Pro</span>
+                    </div>
+                    <div class="tech-badge animate-reveal">
+                        <img src="assets/images/claude.png" alt="Claude AI">
+                        <span>Claude</span>
+                    </div>
+                    <div class="tech-badge animate-reveal" style="border-color: rgba(16, 185, 129, 0.25);">
+                        <img src="assets/images/antigravity.png" alt="Antigravity">
+                        <span>Antigravity</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Row-by-row Reveal Script -->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const badges = document.querySelectorAll('.tech-badge.animate-reveal');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            badges.forEach((badge, idx) => {
+                                // Calculate columns dynamically based on parent container width
+                                const width = entry.boundingClientRect.width;
+                                const itemsPerRow = width > 500 ? 4 : 3;
+                                const row = Math.floor(idx / itemsPerRow);
+                                badge.style.transitionDelay = `${row * 150}ms`;
+                                badge.classList.add('visible');
+                            });
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.05 });
+
+                const grid = document.querySelector('.tech-grid');
+                if (grid) observer.observe(grid);
+            });
+        </script>
+
+        <div class="glass-card" style="margin-top: 3rem; text-align: center; padding: 2.5rem !important;">
+            <h2 style="margin-bottom: 0.5rem;">Hobbies & Interests</h2>
+            <p style="color: var(--text-muted-dark); max-width: 600px; margin: 0 auto 2rem; font-size: 1.05rem;">
+                When I'm not auditing code or designing apps, you can explore my favorite off-duty games, creative outlets, and technical hobbies.
+            </p>
+            <div id="circular-gallery-container" style="height: 500px; width: 100%; position: relative; overflow: hidden; border-radius: 15px; background: rgba(5, 5, 5, 0.4); border: 1px solid var(--border-light);"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ahmad Ainul Afeeq. Built for Portfolio.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience | Ahmad Ainul Afeeq</title>
+    <meta name="description" content="Portfolio of projects and works by Ahmad Ainul Afeeq.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <canvas id="particle-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; opacity: 0.8;"></canvas>
+    <div id="scroll-progress"></div>
+
+    <header>
+        <nav>
+            <div class="logo">AAA</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button id="theme-toggle" aria-label="Toggle Theme" style="background: none; border: none; cursor: pointer; color: var(--text-light); font-size: 1.2rem; display: flex; padding: 0.5rem;">
+                    <svg id="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <svg id="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
+                <button class="menu-btn" aria-label="Toggle navigation">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1 style="text-align: center; margin-bottom: 3rem;">My Experience & Projects</h1>
+        
+        <div class="grid-3">
+            <!-- Project 1 -->
+            <div class="glass-card" style="display: flex; flex-direction: column;">
+                <div style="height: 200px; background: rgba(59, 130, 246, 0.2); border-radius: 10px; margin-bottom: 1.5rem; display: flex; justify-content: center; align-items: center; border: 1px solid var(--glass-border);">
+                    <span style="font-size: 3rem;">💻</span>
+                </div>
+                <h3>E-Commerce UI Redesign</h3>
+                <p style="flex: 1;">A conceptual redesign of a popular e-commerce platform focusing on improving user flow and accessibility.</p>
+                <div class="tag-container" style="margin-bottom: 1.5rem;">
+                    <span class="tag">Figma</span>
+                    <span class="tag">UI/UX</span>
+                </div>
+                <a href="#" class="btn btn-secondary" style="text-align: center;">View Details</a>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="glass-card" style="display: flex; flex-direction: column;">
+                <div style="height: 200px; background: rgba(139, 92, 246, 0.2); border-radius: 10px; margin-bottom: 1.5rem; display: flex; justify-content: center; align-items: center; border: 1px solid var(--glass-border);">
+                    <span style="font-size: 3rem;">📱</span>
+                </div>
+                <h3>Habit Tracker App</h3>
+                <p style="flex: 1;">A mobile application prototype designed to help users build and maintain positive daily habits with gamification elements.</p>
+                <div class="tag-container" style="margin-bottom: 1.5rem;">
+                    <span class="tag">React Native</span>
+                    <span class="tag">Design System</span>
+                </div>
+                <a href="#" class="btn btn-secondary" style="text-align: center;">View Details</a>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="glass-card" style="display: flex; flex-direction: column;">
+                <div style="height: 200px; background: rgba(16, 185, 129, 0.2); border-radius: 10px; margin-bottom: 1.5rem; display: flex; justify-content: center; align-items: center; border: 1px solid var(--glass-border);">
+                    <span style="font-size: 3rem;">🌐</span>
+                </div>
+                <h3>Local Cafe Website</h3>
+                <p style="flex: 1;">A fully responsive website developed for a local cafe, integrating an online menu and booking system.</p>
+                <div class="tag-container" style="margin-bottom: 1.5rem;">
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+                <a href="#" class="btn btn-secondary" style="text-align: center;">View Details</a>
+            </div>
+        </div> <!-- Close grid-3 container -->
+
+        <!-- Certificate Subsection -->
+        <div class="certificate-section" style="margin-top: 5rem; border-top: 1px solid var(--border-light); padding-top: 4rem;">
+            <h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-color);">My Certificates</h2>
+            <p style="text-align: center; color: var(--text-muted-dark); max-width: 600px; margin: 0 auto 3rem; font-size: 1.05rem;">
+                Official credentials, training completions, and CTF competition achievements in cyber security and software engineering.
+            </p>
+
+            <!-- Filter tags -->
+            <div class="filter-tags">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ctf">CTFs</button>
+                <button class="filter-btn" data-filter="university">University</button>
+                <button class="filter-btn" data-filter="cybersecurity">Cyber Security</button>
+            </div>
+
+            <!-- Certificates Grid -->
+            <div class="certificates-grid">
+                <!-- Cert 1: Taming iCTFF8 -->
+                <div class="glass-card spotlight-card cert-card" data-category="ctf university cybersecurity" data-orientation="landscape" data-title="8th UiTM Capture The Flag Taming iCTFF8" data-file="assets/documents/taming-ictff8.pdf">
+                    <div class="cert-card-header">
+                        <span class="cert-tag">CTF &middot; University</span>
+                        <span class="cert-icon">🛡️</span>
+                    </div>
+                    <div class="cert-card-body">
+                        <h3>8th UiTM Capture The Flag Taming iCTFF8</h3>
+                        <div class="cert-issuer">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+                            </svg>
+                            UiTM Universiti Teknologi MARA
+                        </div>
+                    </div>
+                    <div class="cert-card-footer">
+                        <span class="cert-date">2026</span>
+                        <div class="cert-actions">
+                            <a href="assets/documents/taming-ictff8.pdf" download="taming-ictff8.pdf" class="cert-action-btn" title="Download PDF" onclick="event.stopPropagation();">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cert 2: HTB University CTF 2025 -->
+                <div class="glass-card spotlight-card cert-card" data-category="ctf cybersecurity" data-orientation="landscape" data-title="HTB University CTF 2025" data-file="assets/documents/htb-university.pdf">
+                    <div class="cert-card-header">
+                        <span class="cert-tag">CTF &middot; Cyber Security</span>
+                        <span class="cert-icon">🔑</span>
+                    </div>
+                    <div class="cert-card-body">
+                        <h3>HTB University CTF 2025</h3>
+                        <div class="cert-issuer">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Hack The Box
+                        </div>
+                    </div>
+                    <div class="cert-card-footer">
+                        <span class="cert-date">2025</span>
+                        <div class="cert-actions">
+                            <a href="assets/documents/htb-university.pdf" download="htb-university.pdf" class="cert-action-btn" title="Download PDF" onclick="event.stopPropagation();">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cert 3: UMCS CTF 2026 -->
+                <div class="glass-card spotlight-card cert-card" data-category="ctf university cybersecurity" data-orientation="landscape" data-title="UMCS CTF 2026" data-file="assets/documents/umcs-ctf-2026.pdf">
+                    <div class="cert-card-header">
+                        <span class="cert-tag">CTF &middot; University</span>
+                        <span class="cert-icon">🎓</span>
+                    </div>
+                    <div class="cert-card-body">
+                        <h3>UMCS CTF 2026</h3>
+                        <div class="cert-issuer">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+                            </svg>
+                            UMCS University Malaya Computer Society
+                        </div>
+                    </div>
+                    <div class="cert-card-footer">
+                        <span class="cert-date">2026</span>
+                        <div class="cert-actions">
+                            <a href="assets/documents/umcs-ctf-2026.pdf" download="umcs-ctf-2026.pdf" class="cert-action-btn" title="Download PDF" onclick="event.stopPropagation();">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificate Preview Modal -->
+        <div id="certModal" class="cert-modal">
+            <div id="certModalContainer" class="cert-modal-container">
+                <div class="cert-modal-header">
+                    <div id="certModalTitle" class="cert-modal-title">Certificate Preview</div>
+                    <button id="certModalClose" class="cert-modal-close" aria-label="Close Preview">&times;</button>
+                </div>
+                <div class="cert-modal-body">
+                    <iframe id="certModalIframe" src="" style="width: 100%; height: 100%; border: none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ahmad Ainul Afeeq. Built for Portfolio.</p>
+    </footer>
+</body>
+</html>
