@@ -116,54 +116,107 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* =========================================
-       4. FORM SUBMISSION
+       4. FORM SUBMISSION (GMAIL ROUTING)
        ========================================= */
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
+    // 💡 TO RECEIVE MESSAGES DIRECTLY TO YOUR GMAIL:
+    // 1. Go to https://web3forms.com/ and enter your Gmail: ahmadainulafeeq@gmail.com
+    // 2. You will instantly get a free Access Key in your inbox.
+    // 3. Paste that Access Key below (replace 'YOUR_ACCESS_KEY_HERE'):
+    const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY_HERE';
+
+    const contactForms = document.querySelectorAll('form');
+    contactForms.forEach(form => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
+            const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('.minimal-send-btn');
+            if (!submitBtn) return;
+            const originalText = submitBtn.textContent || 'Send Message';
 
             submitBtn.textContent = 'Sending...';
             submitBtn.style.opacity = '0.7';
             submitBtn.disabled = true;
 
+            const nameInput = form.querySelector('[name="name"]');
+            const emailInput = form.querySelector('[name="email"]');
+            const subjectInput = form.querySelector('[name="subject"]');
+            const messageInput = form.querySelector('[name="message"]');
+
             const payload = {
-                name:    contactForm.querySelector('#name').value.trim(),
-                email:   contactForm.querySelector('#email').value.trim(),
-                message: contactForm.querySelector('#message').value.trim()
+                name:    nameInput ? nameInput.value.trim() : '',
+                email:   emailInput ? emailInput.value.trim() : '',
+                subject: subjectInput ? subjectInput.value.trim() : 'Portfolio Contact Message',
+                message: messageInput ? messageInput.value.trim() : ''
             };
 
-            try {
-                const res  = await fetch('/api/contact', {
-                    method:  'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body:    JSON.stringify(payload)
-                });
-                const data = await res.json();
+            const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            const useWeb3Forms = WEB3FORMS_ACCESS_KEY && WEB3FORMS_ACCESS_KEY !== 'YOUR_ACCESS_KEY_HERE';
 
-                if (data.success) {
-                    submitBtn.textContent = '✔ Message Sent!';
-                    submitBtn.style.background = '#10b981';
-                    submitBtn.style.opacity = '1';
-                    contactForm.reset();
+            try {
+                if (useWeb3Forms) {
+                    // Send to Gmail via Web3Forms API
+                    const res = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            access_key: WEB3FORMS_ACCESS_KEY,
+                            from_name: 'Portfolio Contact Form',
+                            ...payload
+                        })
+                    });
+                    const data = await res.json();
+                    if (data.success) {
+                        showSuccess(submitBtn, form);
+                    } else {
+                        throw new Error(data.message || 'Web3Forms error');
+                    }
+                } else if (isLocalhost) {
+                    // Fallback to local Express server during local development
+                    const res = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const data = await res.json();
+                    if (data.success) {
+                        showSuccess(submitBtn, form);
+                    } else {
+                        throw new Error(data.error || 'Server error');
+                    }
                 } else {
-                    throw new Error(data.error || 'Server error');
+                    // Alert popup detailing how to activate Gmail live
+                    alert('🔑 Contact Form Setup Needed:\n\nTo receive messages directly to your Gmail on your live website:\n1. Go to web3forms.com\n2. Enter ahmadainulafeeq@gmail.com to get a free Access Key\n3. Paste the key inside public/script.js!\n\n(Local fallback: works on localhost)');
+                    throw new Error('Web3Forms key missing');
                 }
             } catch (err) {
-                submitBtn.textContent = '✖ Failed — Try Again';
-                submitBtn.style.background = '#ef4444';
+                submitBtn.textContent = '✖ Failed';
+                if (submitBtn.classList.contains('minimal-send-btn')) {
+                    submitBtn.style.color = '#ef4444';
+                } else {
+                    submitBtn.style.background = '#ef4444';
+                }
                 submitBtn.style.opacity = '1';
-                console.error('Contact form error:', err);
+                console.error('Contact form submission failed:', err);
             } finally {
                 setTimeout(() => {
                     submitBtn.textContent = originalText;
                     submitBtn.style.background = '';
+                    submitBtn.style.color = '';
+                    submitBtn.style.opacity = '';
                     submitBtn.disabled = false;
-                }, 3500);
+                }, 4000);
             }
         });
+    });
+
+    function showSuccess(btn, form) {
+        btn.textContent = '✔ Message Sent!';
+        if (btn.classList.contains('minimal-send-btn')) {
+            btn.style.color = '#10b981';
+        } else {
+            btn.style.background = '#10b981';
+        }
+        btn.style.opacity = '1';
+        form.reset();
     }
 
     /* =========================================
