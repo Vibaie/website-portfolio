@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Go to https://web3forms.com/ and enter your Gmail: ahmadainulafeeq@gmail.com
     // 2. You will instantly get a free Access Key in your inbox.
     // 3. Paste that Access Key below (replace 'YOUR_ACCESS_KEY_HERE'):
-    const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY_HERE';
+    const WEB3FORMS_ACCESS_KEY = '6b3c1632-4f17-40f9-b1b5-f3b703922c0d';
 
     const contactForms = document.querySelectorAll('form');
     contactForms.forEach(form => {
