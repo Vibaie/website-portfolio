@@ -899,7 +899,7 @@ body,
 
 .certificates-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -908,7 +908,6 @@ body,
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    aspect-ratio: 16/10;
     cursor: pointer;
     padding: 1.8rem !important;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
