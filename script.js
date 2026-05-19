@@ -655,64 +655,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* =========================================
-       BORDER GLOW — vanilla port of React Bits BorderGlow
-       Applied to certificate cards with green gradient
+       SPOTLIGHT CARD — vanilla port of React Bits SpotlightCard
+       Applied to certificate cards with green spotlight
        ========================================= */
-    (function initCertGlow() {
-        const cards = document.querySelectorAll('.cert-card');
+    (function initSpotlightCard() {
+        const SPOTLIGHT_COLOR = 'rgba(16, 185, 129, 0.22)';
 
-        cards.forEach(card => {
-            // Inject the rotating gradient border layer
-            const glowBorder = document.createElement('div');
-            glowBorder.className = 'cert-glow-border';
-            card.insertBefore(glowBorder, card.firstChild);
+        document.querySelectorAll('.cert-card').forEach(card => {
+            // Inject the spotlight overlay (sits above content via z-index)
+            const overlay = document.createElement('div');
+            overlay.className = 'cert-spotlight-overlay';
+            card.insertBefore(overlay, card.firstChild);
 
-            // --- helpers (ported from React component) ---
-            function getAngle(rect, cx, cy) {
-                const x = cx - rect.left - rect.width  / 2;
-                const y = cy - rect.top  - rect.height / 2;
-                let deg = Math.atan2(y, x) * (180 / Math.PI) + 90;
-                return ((deg % 360) + 360) % 360;
-            }
-
-            function getProximity(rect, cx, cy) {
-                const hw = rect.width  / 2;
-                const hh = rect.height / 2;
-                const x  = Math.abs(cx - rect.left - hw);
-                const y  = Math.abs(cy - rect.top  - hh);
-                const kx = hw > 0 ? x / hw : 0;
-                const ky = hh > 0 ? y / hh : 0;
-                return Math.min(Math.max(Math.max(kx, ky), 0), 1);
-            }
-
-            card.addEventListener('pointermove', (e) => {
-                const rect  = card.getBoundingClientRect();
-                const angle = getAngle(rect, e.clientX, e.clientY);
-                const prox  = getProximity(rect, e.clientX, e.clientY);
-
-                // Border opacity: visible when proximity > 50%
-                const borderOp = Math.max(0, (prox * 100 - 50) / 50);
-                // Glow opacity: visible when proximity > 30%
-                const glowOp   = Math.max(0, (prox * 100 - 30) / 70);
-
-                card.style.setProperty('--cert-angle',          angle.toFixed(2) + 'deg');
-                card.style.setProperty('--cert-border-opacity', borderOp.toFixed(3));
-
-                // Outer glow via box-shadow (no overflow issues)
-                if (glowOp > 0) {
-                    card.style.boxShadow = [
-                        `0 0 15px 1px rgba(16,185,129,${(glowOp * 0.55).toFixed(2)})`,
-                        `0 0 30px 3px rgba(52,211,153,${(glowOp * 0.30).toFixed(2)})`,
-                        `0 0 55px 6px rgba(110,231,183,${(glowOp * 0.12).toFixed(2)})`
-                    ].join(', ');
-                } else {
-                    card.style.removeProperty('box-shadow');
-                }
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                overlay.style.background = `radial-gradient(circle at ${x}px ${y}px, ${SPOTLIGHT_COLOR}, transparent 80%)`;
             });
 
-            card.addEventListener('pointerleave', () => {
-                card.style.setProperty('--cert-border-opacity', '0');
-                card.style.removeProperty('box-shadow');
+            card.addEventListener('mouseenter', () => {
+                overlay.style.opacity = '1';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                overlay.style.opacity = '0';
             });
         });
     })();
