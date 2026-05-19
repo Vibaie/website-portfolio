@@ -538,6 +538,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const certModalContainer = document.getElementById('certModalContainer');
     const certModalTitle = document.getElementById('certModalTitle');
+    const certModalDesc = document.getElementById('certModalDesc');
     const certModalIframe = document.getElementById('certModalIframe');
     const certModalClose = document.getElementById('certModalClose');
 
@@ -556,6 +557,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Set content and configuration
                 certModalTitle.textContent = title;
+                if (certModalDesc) certModalDesc.textContent = card.getAttribute('data-description') || '';
                 certModalIframe.src = `${file}#toolbar=0`;
                 
                 // Adjust modal container size according to orientation (portrait / landscape)
