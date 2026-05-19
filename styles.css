@@ -1288,3 +1288,70 @@ body,
     border-color: var(--primary-color);
     box-shadow: 0 10px 30px rgba(16, 185, 129, 0.08);
 }
+
+/* =========================================
+   17. TIMELINE MEMORIES HOVER EFFECT
+   ========================================= */
+.memory-photo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 20, 0.92); /* Dark emerald tint matching the theme */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 4; /* Below glare overlay which is z-index: 10 */
+}
+
+/* On hover, fade in and scale up slightly */
+.glass-card:hover .memory-photo-container {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.memory-photo-frame {
+    background: var(--bg-dark, #0b0f19);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+    border-radius: 8px;
+    padding: 8px;
+    padding-bottom: 24px; /* classic polaroid / memory frame bottom space */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.9) translateY(10px) rotate(-2deg);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+}
+
+.glass-card:hover .memory-photo-frame {
+    transform: scale(1) translateY(0) rotate(0deg);
+}
+
+.memory-photo {
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.memory-photo-caption {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    font-family: monospace;
+    color: var(--primary-color);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
