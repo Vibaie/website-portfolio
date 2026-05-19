@@ -314,15 +314,87 @@
             </div>
 
             <div class="glass-card" style="margin-top: 2rem; padding: 2.5rem !important;">
-                <h2 style="color: var(--primary-color); margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem; text-align: center;">
+                <h2 style="color: var(--primary-color); margin-bottom: 2rem; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem; text-align: center;">
                     Soft Skills
                 </h2>
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-                    <span style="background: rgba(16, 185, 129, 0.1); color: var(--primary-color); border: 1px solid rgba(16, 185, 129, 0.3); padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 600; font-size: 0.95rem;">Problem Solving</span>
-                    <span style="background: rgba(16, 185, 129, 0.1); color: var(--primary-color); border: 1px solid rgba(16, 185, 129, 0.3); padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 600; font-size: 0.95rem;">Collaboration</span>
-                    <span style="background: rgba(16, 185, 129, 0.1); color: var(--primary-color); border: 1px solid rgba(16, 185, 129, 0.3); padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 600; font-size: 0.95rem;">Adaptability</span>
-                    <span style="background: rgba(16, 185, 129, 0.1); color: var(--primary-color); border: 1px solid rgba(16, 185, 129, 0.3); padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 600; font-size: 0.95rem;">Communication</span>
-                </div>
+                <ul class="softskill-grid">
+                    <!-- Problem Solving -->
+                    <li class="softskill-item">
+                        <div class="softskill-sub-grid softskill-center">
+                            <figure class="softskill-icon-wrap">
+                                <svg class="softskill-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <g fill="currentColor">
+                                        <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8z" opacity=".4"/>
+                                        <path d="M12 7a1 1 0 0 0-1 1v4l-2.293 2.293a1 1 0 1 0 1.414 1.414l2.586-2.586A1 1 0 0 0 13 12V8a1 1 0 0 0-1-1z"/>
+                                    </g>
+                                </svg>
+                            </figure>
+                            <h4 style="color: var(--text-light); font-size: 1.05rem;">Problem Solving</h4>
+                        </div>
+                        <div class="softskill-sub-grid">
+                            <div class="softskill-icon-clone" aria-hidden="true"></div>
+                            <p class="softskill-desc">Able to break down complex technical challenges into structured, logical steps — from debugging CTF challenges to designing secure system flows.</p>
+                        </div>
+                    </li>
+
+                    <!-- Collaboration -->
+                    <li class="softskill-item">
+                        <div class="softskill-sub-grid softskill-center">
+                            <figure class="softskill-icon-wrap">
+                                <svg class="softskill-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <g fill="currentColor">
+                                        <circle cx="9" cy="7" r="4" opacity=".4"/>
+                                        <path d="M17 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm-8 2c-4.418 0-8 1.79-8 4v1h16v-1c0-2.21-3.582-4-8-4z"/>
+                                        <path d="M17 13c-1.3 0-2.516.284-3.583.772C14.96 14.67 16 15.765 16 17v1h6v-1c0-2.21-2.686-4-5-4z" opacity=".4"/>
+                                    </g>
+                                </svg>
+                            </figure>
+                            <h4 style="color: var(--text-light); font-size: 1.05rem;">Collaboration</h4>
+                        </div>
+                        <div class="softskill-sub-grid">
+                            <div class="softskill-icon-clone" aria-hidden="true"></div>
+                            <p class="softskill-desc">Experienced working in team-based CTF competitions and group projects, contributing ideas clearly and supporting teammates toward shared goals.</p>
+                        </div>
+                    </li>
+
+                    <!-- Adaptability -->
+                    <li class="softskill-item">
+                        <div class="softskill-sub-grid softskill-center">
+                            <figure class="softskill-icon-wrap">
+                                <svg class="softskill-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <g fill="currentColor">
+                                        <path d="M19.071 4.929A9.969 9.969 0 0 0 12 2v10l-7.071-7.071A10 10 0 1 0 19.071 4.929z" opacity=".4"/>
+                                        <path d="M12 2a9.969 9.969 0 0 0-7.071 2.929L12 12V2z"/>
+                                    </g>
+                                </svg>
+                            </figure>
+                            <h4 style="color: var(--text-light); font-size: 1.05rem;">Adaptability</h4>
+                        </div>
+                        <div class="softskill-sub-grid">
+                            <div class="softskill-icon-clone" aria-hidden="true"></div>
+                            <p class="softskill-desc">Quick to pick up new tools, languages, and frameworks. Comfortable navigating fast-moving environments like CTFs or shifting project requirements.</p>
+                        </div>
+                    </li>
+
+                    <!-- Communication -->
+                    <li class="softskill-item">
+                        <div class="softskill-sub-grid softskill-center">
+                            <figure class="softskill-icon-wrap">
+                                <svg class="softskill-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <g fill="currentColor">
+                                        <path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z" opacity=".4"/>
+                                        <path d="M7 10h10v2H7zm0-3h10v2H7zm0 6h7v2H7z"/>
+                                    </g>
+                                </svg>
+                            </figure>
+                            <h4 style="color: var(--text-light); font-size: 1.05rem;">Communication</h4>
+                        </div>
+                        <div class="softskill-sub-grid">
+                            <div class="softskill-icon-clone" aria-hidden="true"></div>
+                            <p class="softskill-desc">Able to explain technical concepts clearly — whether writing documentation, presenting findings, or producing content for a non-technical audience.</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
 
             <div class="glass-card" style="margin-top: 2rem; text-align: center; padding: 2.5rem !important;">
