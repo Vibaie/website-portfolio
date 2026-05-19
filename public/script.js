@@ -632,4 +632,23 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(err => console.error("Failed to load ProfileCard:", err));
     }
+
+    // Initialize GlareHover for Academic Journey timeline cards
+    const timelineCards = document.querySelectorAll('.timeline-item .glass-card');
+    if (timelineCards.length > 0) {
+        import('./GlareHover.js')
+            .then(module => {
+                timelineCards.forEach(card => {
+                    new module.GlareHover(card, {
+                        glareColor: '#ffffff',
+                        glareOpacity: 0.3,
+                        glareAngle: -30,
+                        glareSize: 300,
+                        transitionDuration: 800,
+                        playOnce: false
+                    });
+                });
+            })
+            .catch(err => console.error("Failed to load GlareHover:", err));
+    }
 });
