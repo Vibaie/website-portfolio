@@ -483,7 +483,9 @@
                     <!-- Cert 1: Taming iCTFF8 -->
                     <div class="glass-card cert-card" data-category="ctf university cybersecurity"
                         data-orientation="landscape" data-title="8th UiTM Capture The Flag Taming iCTFF8"
-                        data-file="assets/documents/taming-ictff8.pdf" style="display: flex; flex-direction: column; cursor: pointer;">
+                        data-file="assets/documents/taming-ictff8.pdf"
+                        data-description="Participated in the 8th UiTM Taming iCTFF8 Capture The Flag competition, a cybersecurity challenge hosted by Universiti Teknologi MARA (UiTM). Competed across categories including web exploitation, cryptography, reverse engineering, and OSINT, applying real-world offensive security skills under a time-limited environment."
+                        style="display: flex; flex-direction: column; cursor: pointer;">
                         
                         <!-- Certificate Preview Window -->
                         <div style="height: 220px; border-radius: 8px; margin-bottom: 2rem; overflow: hidden; position: relative; border: 1px solid var(--glass-border); background: #0d1117;">
@@ -522,7 +524,9 @@
                     <!-- Cert 2: HTB University CTF 2025 -->
                     <div class="glass-card cert-card" data-category="ctf cybersecurity"
                         data-orientation="landscape" data-title="HTB University CTF 2025"
-                        data-file="assets/documents/htb-university.pdf" style="display: flex; flex-direction: column; cursor: pointer;">
+                        data-file="assets/documents/htb-university.pdf"
+                        data-description="Competed in the Hack The Box (HTB) University CTF 2025, a globally recognized cybersecurity competition open to university students worldwide. Tackled advanced challenges in binary exploitation, forensics, web security, and cryptography, achieving a competitive ranking on the global leaderboard."
+                        style="display: flex; flex-direction: column; cursor: pointer;">
                         
                         <!-- Certificate Preview Window -->
                         <div style="height: 220px; border-radius: 8px; margin-bottom: 2rem; overflow: hidden; position: relative; border: 1px solid var(--glass-border); background: #0d1117;">
@@ -561,7 +565,9 @@
                     <!-- Cert 3: UMCS CTF 2026 -->
                     <div class="glass-card cert-card" data-category="ctf university cybersecurity"
                         data-orientation="landscape" data-title="UMCS CTF 2026" 
-                        data-file="assets/documents/umcs-ctf-2026.pdf" style="display: flex; flex-direction: column; cursor: pointer;">
+                        data-file="assets/documents/umcs-ctf-2026.pdf"
+                        data-description="Participated in UMCS CTF 2026, a Capture The Flag competition organized by the University Malaya Computer Society (UMCS). The competition tested participants in areas such as network security, steganography, pwn, and web vulnerabilities, promoting hands-on cybersecurity learning in an academic setting."
+                        style="display: flex; flex-direction: column; cursor: pointer;">
                         
                         <!-- Certificate Preview Window -->
                         <div style="height: 220px; border-radius: 8px; margin-bottom: 2rem; overflow: hidden; position: relative; border: 1px solid var(--glass-border); background: #0d1117;">
@@ -603,7 +609,10 @@
             <div id="certModal" class="cert-modal">
                 <div id="certModalContainer" class="cert-modal-container">
                     <div class="cert-modal-header">
-                        <div id="certModalTitle" class="cert-modal-title">Certificate Preview</div>
+                        <div>
+                            <div id="certModalTitle" class="cert-modal-title">Certificate Preview</div>
+                            <p id="certModalDesc" style="margin: 0.4rem 0 0; font-size: 0.88rem; color: var(--text-muted-dark); max-width: 700px; line-height: 1.6;"></p>
+                        </div>
                         <button id="certModalClose" class="cert-modal-close" aria-label="Close Preview">&times;</button>
                     </div>
                     <div class="cert-modal-body">
