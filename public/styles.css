@@ -897,30 +897,21 @@ body,
     box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
 }
 
-/* ---- BorderGlow: vanilla JS port for certificate cards ---- */
+/* ---- SpotlightCard: radial gradient spotlight for certificate cards ---- */
 .cert-card {
     isolation: isolate;
-    overflow: visible !important;
+    overflow: hidden !important;
 }
 
-.cert-glow-border {
+.cert-spotlight-overlay {
+    pointer-events: none;
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    pointer-events: none;
-    z-index: 0;
-    border: 1.5px solid transparent;
-    background:
-        linear-gradient(var(--bg-dark, #080c09) 0 100%) padding-box,
-        radial-gradient(at 80% 55%, #10b981 0px, transparent 50%) border-box,
-        radial-gradient(at 8%  6%,  #34d399 0px, transparent 50%) border-box,
-        radial-gradient(at 69% 34%, #6ee7b7 0px, transparent 50%) border-box,
-        radial-gradient(at 41% 85%, #059669 0px, transparent 50%) border-box,
-        linear-gradient(#10b981 0 100%) border-box;
-    opacity: var(--cert-border-opacity, 0);
-    mask-image: conic-gradient(from var(--cert-angle, 45deg) at center, black 25%, transparent 40%, transparent 60%, black 75%);
-    -webkit-mask-image: conic-gradient(from var(--cert-angle, 45deg) at center, black 25%, transparent 40%, transparent 60%, black 75%);
-    transition: opacity 0.3s ease-out;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1;
+    background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.25), transparent 80%);
 }
 
 /* ---- Soft Skills Feature Grid (feature-v7 dark adaptation) ---- */
