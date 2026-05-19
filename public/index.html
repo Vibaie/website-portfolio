@@ -17,6 +17,7 @@
         href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,75..150,100..1000&display=swap"
         rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
     <script src="LiquidEther.js?v=2.2"></script>
     <script src="TextPressure.js?v=2.2"></script>
@@ -485,9 +486,8 @@
                         data-file="assets/documents/taming-ictff8.pdf" style="display: flex; flex-direction: column; cursor: pointer;">
                         
                         <!-- Certificate Preview Window -->
-                        <div style="height: 220px; border-radius: 8px; margin-bottom: 1.5rem; overflow: hidden; position: relative; border: 1px solid var(--glass-border); background: #1a1a1a;">
-                            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;"></div>
-                            <iframe src="assets/documents/taming-ictff8.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit" style="position: absolute; top: 0; left: 0; width: 400%; height: 400%; border: none; pointer-events: none; transform: scale(0.25); transform-origin: 0 0;"></iframe>
+                        <div style="height: 220px; border-radius: 8px; margin-bottom: 1.5rem; overflow: hidden; position: relative; border: 1px solid var(--glass-border); background: #0d1117;">
+                            <canvas class="cert-canvas" data-pdf="assets/documents/taming-ictff8.pdf" style="width: 100%; height: 100%; object-fit: cover; display: block;"></canvas>
                         </div>
 
                         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
@@ -525,9 +525,8 @@
                         data-file="assets/documents/htb-university.pdf" style="display: flex; flex-direction: column; cursor: pointer;">
                         
                         <!-- Certificate Preview Window -->
-                        <div style="height: 220px; border-radius: 8px; margin-bottom: 1.5rem; overflow: hidden; position: relative; border: 1px solid var(--glass-border); background: #1a1a1a;">
-                            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;"></div>
-                            <iframe src="assets/documents/htb-university.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit" style="position: absolute; top: 0; left: 0; width: 400%; height: 400%; border: none; pointer-events: none; transform: scale(0.25); transform-origin: 0 0;"></iframe>
+                        <div style="height: 220px; border-radius: 8px; margin-bottom: 1.5rem; overflow: hidden; position: relative; border: 1px solid var(--glass-border); background: #0d1117;">
+                            <canvas class="cert-canvas" data-pdf="assets/documents/htb-university.pdf" style="width: 100%; height: 100%; object-fit: cover; display: block;"></canvas>
                         </div>
 
                         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
@@ -565,9 +564,8 @@
                         data-file="assets/documents/umcs-ctf-2026.pdf" style="display: flex; flex-direction: column; cursor: pointer;">
                         
                         <!-- Certificate Preview Window -->
-                        <div style="height: 220px; border-radius: 8px; margin-bottom: 1.5rem; overflow: hidden; position: relative; border: 1px solid var(--glass-border); background: #1a1a1a;">
-                            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;"></div>
-                            <iframe src="assets/documents/umcs-ctf-2026.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit" style="position: absolute; top: 0; left: 0; width: 400%; height: 400%; border: none; pointer-events: none; transform: scale(0.25); transform-origin: 0 0;"></iframe>
+                        <div style="height: 220px; border-radius: 8px; margin-bottom: 1.5rem; overflow: hidden; position: relative; border: 1px solid var(--glass-border); background: #0d1117;">
+                            <canvas class="cert-canvas" data-pdf="assets/documents/umcs-ctf-2026.pdf" style="width: 100%; height: 100%; object-fit: cover; display: block;"></canvas>
                         </div>
 
                         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
@@ -705,6 +703,49 @@
                 style="font-weight: 700; letter-spacing: 1.5px; color: var(--primary-color);">000000</span>
         </div>
     </footer>
+    <script>
+        // PDF.js Certificate Preview Renderer
+        (function () {
+            if (typeof pdfjsLib === 'undefined') return;
+
+            pdfjsLib.GlobalWorkerOptions.workerSrc =
+                'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+            function renderPdfToCanvas(canvas, pdfUrl) {
+                const container = canvas.parentElement;
+                const containerW = container.offsetWidth || 400;
+                const containerH = container.offsetHeight || 220;
+
+                pdfjsLib.getDocument(pdfUrl).promise.then(function (pdf) {
+                    pdf.getPage(1).then(function (page) {
+                        // Scale the PDF page to fill the card width
+                        const unscaledViewport = page.getViewport({ scale: 1 });
+                        const scale = containerW / unscaledViewport.width;
+                        const viewport = page.getViewport({ scale: scale });
+
+                        canvas.width = viewport.width;
+                        canvas.height = viewport.height;
+
+                        // Override CSS so the canvas fills the container width
+                        canvas.style.width = containerW + 'px';
+                        canvas.style.height = 'auto';
+
+                        const ctx = canvas.getContext('2d');
+                        page.render({ canvasContext: ctx, viewport: viewport });
+                    });
+                }).catch(function (err) {
+                    console.warn('PDF.js render error for ' + pdfUrl, err);
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                document.querySelectorAll('canvas.cert-canvas').forEach(function (canvas) {
+                    const pdfUrl = canvas.getAttribute('data-pdf');
+                    if (pdfUrl) renderPdfToCanvas(canvas, pdfUrl);
+                });
+            });
+        })();
+    </script>
 </body>
 
 </html>
