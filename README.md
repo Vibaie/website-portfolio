@@ -1,4 +1,4 @@
-# Ahmad Ainul Afeeq — Digital Portfolio 🛡️✨
+# Cyber Security Theme — Digital Portfolio 🛡️✨
 
 Welcome to my personal digital portfolio! This is a premium, high-end dark cyber-security themed portfolio website showcasing my academic journey, tech stack, and interactive engineering projects.
 
