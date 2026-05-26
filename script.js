@@ -596,6 +596,112 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Project Details Modal Interaction
+    const projectModal = document.getElementById('projectModal');
+    if (projectModal) {
+        document.body.appendChild(projectModal);
+    }
+    const projectModalTitle = document.getElementById('projectModalTitle');
+    const projectModalImage = document.getElementById('projectModalImage');
+    const projectModalDesc = document.getElementById('projectModalDesc');
+    const projectModalTags = document.getElementById('projectModalTags');
+    const projectModalPlay = document.getElementById('projectModalPlay');
+    const projectModalRepo = document.getElementById('projectModalRepo');
+    const projectModalClose = document.getElementById('projectModalClose');
+
+    if (projectModal && projectModalClose) {
+        const detailButtons = document.querySelectorAll('.project-detail-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        const openProjectModal = (element) => {
+            const card = element.closest('.project-card');
+            if (!card) return;
+
+            const title = card.getAttribute('data-project-title') || 'Project Details';
+            const desc = card.getAttribute('data-project-desc') || '';
+            const tags = card.getAttribute('data-project-tags') || '';
+            const image = card.getAttribute('data-project-image') || '';
+            const playUrl = card.getAttribute('data-project-play') || '#';
+            const repoUrl = card.getAttribute('data-project-repo') || '#';
+
+            if (projectModalTitle) projectModalTitle.textContent = title;
+            if (projectModalDesc) projectModalDesc.textContent = desc;
+            if (projectModalImage && image) {
+                projectModalImage.src = image;
+                projectModalImage.parentElement.style.display = 'block';
+            } else if (projectModalImage) {
+                projectModalImage.parentElement.style.display = 'none';
+            }
+
+            if (projectModalTags) {
+                projectModalTags.innerHTML = '';
+                if (tags) {
+                    tags.split(',').forEach(tagText => {
+                        const tagSpan = document.createElement('span');
+                        tagSpan.className = 'tag';
+                        tagSpan.textContent = tagText.trim();
+                        projectModalTags.appendChild(tagSpan);
+                    });
+                }
+            }
+
+            if (projectModalPlay) {
+                if (playUrl && playUrl !== '#') {
+                    projectModalPlay.href = playUrl;
+                    projectModalPlay.style.display = 'inline-block';
+                } else {
+                    projectModalPlay.style.display = 'none';
+                }
+            }
+            if (projectModalRepo) {
+                if (repoUrl && repoUrl !== '#') {
+                    projectModalRepo.href = repoUrl;
+                    projectModalRepo.style.display = 'inline-block';
+                } else {
+                    projectModalRepo.style.display = 'none';
+                }
+            }
+
+            projectModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        detailButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openProjectModal(btn);
+            });
+        });
+
+        projectCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (e.target.closest('a') || e.target.closest('button')) {
+                    return;
+                }
+                openProjectModal(card);
+            });
+        });
+
+        function closeProjModal() {
+            projectModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        projectModalClose.addEventListener('click', closeProjModal);
+        
+        projectModal.addEventListener('click', (e) => {
+            if (e.target === projectModal) {
+                closeProjModal();
+            }
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+                closeProjModal();
+            }
+        });
+    }
+
     // Initialize Circular Gallery for Hobbies & Interests if container exists
     const galleryContainer = document.getElementById('circular-gallery-container');
     if (galleryContainer) {
