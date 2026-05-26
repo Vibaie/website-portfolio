@@ -621,7 +621,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const desc = card.getAttribute('data-project-desc') || '';
             const tags = card.getAttribute('data-project-tags') || '';
             const image = card.getAttribute('data-project-image') || '';
-            const playUrl = card.getAttribute('data-project-play') || '#';
+            const playUrl = card.getAttribute('data-project-play-text') ? card.getAttribute('data-project-play') : '#';
+            const playText = card.getAttribute('data-project-play-text') || 'Play Game';
             const repoUrl = card.getAttribute('data-project-repo') || '#';
 
             if (projectModalTitle) projectModalTitle.textContent = title;
@@ -646,8 +647,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (projectModalPlay) {
-                if (playUrl && playUrl !== '#') {
-                    projectModalPlay.href = playUrl;
+                const actualPlayUrl = card.getAttribute('data-project-play') || '#';
+                if (actualPlayUrl && actualPlayUrl !== '#') {
+                    projectModalPlay.href = actualPlayUrl;
+                    projectModalPlay.textContent = playText;
                     projectModalPlay.style.display = 'inline-block';
                 } else {
                     projectModalPlay.style.display = 'none';
