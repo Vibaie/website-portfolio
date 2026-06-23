@@ -49,7 +49,7 @@ graph TD
 
 ### 🛰️ Interactive Client Modules (Public Sandbox)
 * **`ProfileCard.js` (Holographic 3D Card Engine):** An interactive matrix container that intercepts mouse vectors and applies responsive 3D tilt transformations with smooth CSS matrix rotations.
-* **`Hyperspeed.js` (WebGL Particle Core):** Feeds dynamic vertex and fragment shaders to render a high-velocity particle field background simulating hyper-dimensional data flow.
+* **`Hyperspeed.js` (React Bits WebGL Road Engine):** Full shader-based highway scene with red & white car light trails, road lane markings, turbulent distortion effects, and bloom post-processing. Click & hold to speed up!
 * **`CircularGallery.js` (Three.js WebGL Ring):** Arranges projects/hobbies in a dynamic circular carousel using 3D camera geometry and responsive hover raycasting.
 * **`GlareHover.js` (Adaptive Specular Highlights):** Generates active lighting reflections following cursor paths, mimicking high-tech hardware overlays.
 
