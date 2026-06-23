@@ -21,7 +21,7 @@
     --nav-bg: rgba(9, 7, 15, 0.85);
     --transition-speed: 0.3s;
 
-    --card-bg: rgba(255, 255, 255, 0.02);
+    --card-bg: rgba(10, 10, 14, 0.88);
     --card-border: rgba(225, 6, 0, 0.1);
     --card-shadow: none;
 
@@ -1673,6 +1673,12 @@ body,
 
 .hyperspeed-bg {
     opacity: 0.9;
+    overflow: hidden;
+}
+
+.hyperspeed-bg canvas {
+    width: 100%;
+    height: 100%;
 }
 
 [data-theme="light"] .hyperspeed-bg {
@@ -1693,7 +1699,7 @@ body,
     --border-light: rgba(255, 255, 255, 0.14);
     --border-dark: rgba(225, 6, 0, 0.22);
     --nav-bg: rgba(2, 2, 3, 0.92);
-    --card-bg: rgba(255, 255, 255, 0.035);
+    --card-bg: rgba(10, 10, 14, 0.88);
     --card-border: rgba(255, 255, 255, 0.1);
     --bg-glow: rgba(120, 0, 0, 0.12);
 }
@@ -1977,7 +1983,7 @@ main {
 
 .glass-card {
     border-radius: 6px;
-    background: linear-gradient(180deg, var(--card-bg), rgba(255, 255, 255, 0.015));
+    background: linear-gradient(180deg, var(--card-bg), rgba(10, 10, 14, 0.82));
     box-shadow: none;
 }
 
