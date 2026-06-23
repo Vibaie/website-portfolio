@@ -14,9 +14,9 @@ export class ProfileCard {
   constructor(container, options = {}) {
     this.container = container;
     this.options = {
-      name: 'Ahmad Ainul Afeeq',
+      name: 'Azir Azrai',
       title: 'Cyber Security Student & Developer',
-      handle: 'ainulafeeq',
+      handle: 'azirazrai',
       status: 'Online',
       contactText: 'Contact Me',
       avatarUrl: 'assets/images/profile-picture.png',
@@ -25,9 +25,9 @@ export class ProfileCard {
       enableMobileTilt: false,
       mobileTiltSensitivity: 5,
       behindGlowEnabled: true,
-      behindGlowColor: 'rgba(16, 185, 129, 0.4)',
+      behindGlowColor: 'rgba(99, 102, 241, 0.4)',
       behindGlowSize: '50%',
-      innerGradient: 'linear-gradient(145deg, rgba(16,185,129,0.15) 0%, rgba(6,182,212,0.2) 100%)',
+      innerGradient: 'linear-gradient(145deg, rgba(99,102,241,0.15) 0%, rgba(139,92,246,0.2) 100%)',
       onContactClick: null,
       ...options
     };

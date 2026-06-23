@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (tpMount && window.TextPressure) {
         new TextPressure(tpMount, {
             text: 'Hello!',
-            textColor: '#10b981',
+            textColor: '#6366f1',
             minFontSize: 20,
             width: true,
             weight: true,
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
        4. FORM SUBMISSION (GMAIL ROUTING)
        ========================================= */
     // 💡 TO RECEIVE MESSAGES DIRECTLY TO YOUR GMAIL:
-    // 1. Go to https://web3forms.com/ and enter your Gmail: ahmadainulafeeq@gmail.com
+    // 1. Go to https://web3forms.com/ and enter your Gmail: azirazraiazhar@gmail.com
     // 2. You will instantly get a free Access Key in your inbox.
     // 3. Paste that Access Key below (replace 'YOUR_ACCESS_KEY_HERE'):
     const WEB3FORMS_ACCESS_KEY = '6b3c1632-4f17-40f9-b1b5-f3b703922c0d';
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 } else {
                     // Alert popup detailing how to activate Gmail live
-                    alert('🔑 Contact Form Setup Needed:\n\nTo receive messages directly to your Gmail on your live website:\n1. Go to web3forms.com\n2. Enter ahmadainulafeeq@gmail.com to get a free Access Key\n3. Paste the key inside public/script.js!\n\n(Local fallback: works on localhost)');
+                    alert('🔑 Contact Form Setup Needed:\n\nTo receive messages directly to your Gmail on your live website:\n1. Go to web3forms.com\n2. Enter azirazraiazhar@gmail.com to get a free Access Key\n3. Paste the key inside public/script.js!\n\n(Local fallback: works on localhost)');
                     throw new Error('Web3Forms key missing');
                 }
             } catch (err) {
@@ -211,9 +211,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function showSuccess(btn, form) {
         btn.textContent = '✔ Message Sent!';
         if (btn.classList.contains('minimal-send-btn')) {
-            btn.style.color = '#10b981';
+            btn.style.color = '#6366f1';
         } else {
-            btn.style.background = '#10b981';
+            btn.style.background = '#6366f1';
         }
         btn.style.opacity = '1';
         form.reset();
@@ -309,6 +309,29 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
+    // Reveal animated tech badges row-by-row
+    const techGrids = document.querySelectorAll('.tech-grid');
+    if (techGrids.length > 0) {
+        const techBadgeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const grid = entry.target;
+                    const badges = grid.querySelectorAll('.tech-badge.animate-reveal');
+                    badges.forEach((badge, idx) => {
+                        const width = grid.getBoundingClientRect().width;
+                        const itemsPerRow = width > 500 ? 4 : 3;
+                        const row = Math.floor(idx / itemsPerRow);
+                        badge.style.transitionDelay = `${row * 150}ms`;
+                        badge.classList.add('visible');
+                    });
+                    techBadgeObserver.unobserve(grid);
+                }
+            });
+        }, { threshold: 0.05 });
+
+        techGrids.forEach(grid => techBadgeObserver.observe(grid));
+    }
+
     /* =========================================
        8. SCROLL PROGRESS BAR & NAV SPY
        ========================================= */
@@ -338,26 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll);
     handleScroll();
 
-    /* =========================================
-       9. LIQUID ETHER BACKGROUND
-       ========================================= */
-    const liquidBg = document.getElementById('liquid-bg');
-    if (liquidBg && window.LiquidEther) {
-        new LiquidEther(liquidBg, {
-            colors: ['#064e3b', '#10b981', '#34d399', '#06b6d4', '#a7f3d0'],
-            mouseForce: 15,          // Slower, more elegant mouse reaction (was 25)
-            cursorSize: 100,
-            resolution: 0.3,        
-            autoDemo: true,
-            autoSpeed: 0.15,        // Relaxing slow-flow auto speed (was 0.4)
-            autoIntensity: 0.8,     // Gentle automatic movement force (was 2.0)
-            autoResumeDelay: 2000,
-            autoRampDuration: 0.8,
-            BFECC: false,           
-            isViscous: false,
-            iterationsPoisson: 16   
-        });
-    }
+
 
     /* =========================================
        10. ULTRA-SMOOTH CYBER CURSOR 
@@ -727,9 +731,9 @@ document.addEventListener('DOMContentLoaded', () => {
         import('./ProfileCard.js')
             .then(module => {
                 new module.ProfileCard(cardMount, {
-                    name: 'Ahmad Ainul Afeeq',
+                    name: 'Azir Azrai',
                     title: 'Cyber Security Student & Developer',
-                    handle: 'ainulafeeq',
+                    handle: 'azirazrai',
                     status: 'Online',
                     contactText: 'Contact Me',
                     avatarUrl: 'assets/images/profile-picture.png',
@@ -737,8 +741,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     enableTilt: true,
                     enableMobileTilt: false,
                     behindGlowEnabled: true,
-                    behindGlowColor: 'rgba(16, 185, 129, 0.4)',
-                    innerGradient: 'linear-gradient(145deg, rgba(16, 185, 129, 0.15) 0%, rgba(6, 182, 212, 0.2) 100%)'
+                    behindGlowColor: 'rgba(225, 6, 0, 0.4)',
+                    innerGradient: 'linear-gradient(145deg, rgba(225, 6, 0, 0.15) 0%, rgba(225, 6, 0, 0.2) 100%)'
                 });
             })
             .catch(err => console.error("Failed to load ProfileCard:", err));
