@@ -3,15 +3,15 @@
 Welcome to my personal digital portfolio! This is a premium, high-end dark cyber-security themed portfolio website showcasing my academic journey, tech stack, and interactive engineering projects.
 
 <p align="center">
-  <a href="https://azirazrai.github.io/portfolio-website/">
+  <a href="https://vibaie.github.io/website-portfolio/">
     <img src="https://img.shields.io/badge/%F0%9F%8C%90-CLICK%20TO%20CHECK%20LIVE-6366f1?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Click to Check Live" />
   </a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/license/azirazrai/portfolio-website?style=flat-square&color=6366f1" alt="License MIT" />
-  <img src="https://img.shields.io/github/stars/azirazrai/portfolio-website?style=flat-square&color=6366f1" alt="Stars" />
-  <img src="https://img.shields.io/github/forks/azirazrai/portfolio-website?style=flat-square&color=6366f1" alt="Forks" />
+  <img src="https://img.shields.io/github/license/Vibaie/website-portfolio?style=flat-square&color=6366f1" alt="License MIT" />
+  <img src="https://img.shields.io/github/stars/Vibaie/website-portfolio?style=flat-square&color=6366f1" alt="Stars" />
+  <img src="https://img.shields.io/github/forks/Vibaie/website-portfolio?style=flat-square&color=6366f1" alt="Forks" />
 </p>
 
 ---
@@ -48,8 +48,8 @@ To spin up this portfolio on your local machine:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/azirazrai/portfolio-website.git
-   cd portfolio-website
+   git clone https://github.com/Vibaie/website-portfolio.git
+   cd website-portfolio
    ```
 2. Install all local dependencies:
    ```bash
