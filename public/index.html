@@ -946,7 +946,39 @@
                             </svg>
                             Send
                         </button>
+                        <p id="form-status" style="margin-top: 1rem; font-size: 0.9rem; display: none;"></p>
                     </form>
+                    <script>
+                        document.getElementById('contactForm').addEventListener('submit', function(e) {
+                            e.preventDefault();
+
+                            const name = document.getElementById('name').value.trim();
+                            const email = document.getElementById('email').value.trim();
+                            const subject = document.getElementById('subject').value.trim();
+                            const message = document.getElementById('message').value.trim();
+
+                            if (!name || !email || !subject || !message) {
+                                const status = document.getElementById('form-status');
+                                status.textContent = '⚠️ Please fill in all fields.';
+                                status.style.color = '#e10600';
+                                status.style.display = 'block';
+                                return;
+                            }
+
+                            const body = `Hi Azir,\n\nMy name is ${name} (${email}).\n\n${message}\n\nBest regards,\n${name}`;
+                            const mailtoLink = `mailto:azirazraiazhar@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                            window.location.href = mailtoLink;
+
+                            const status = document.getElementById('form-status');
+                            status.textContent = '✅ Opening your email client... Thank you!';
+                            status.style.color = '#22c55e';
+                            status.style.display = 'block';
+
+                            this.reset();
+                            setTimeout(() => { status.style.display = 'none'; }, 5000);
+                        });
+                    </script>
                 </div>
             </div>
         </div>
