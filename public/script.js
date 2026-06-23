@@ -838,14 +838,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     return response.blob();
                 })
                 .then(blob => {
-                    const blobUrl = URL.createObjectURL(blob);
+                    // Create a blob with explicit PDF type
+                    const pdfBlob = new Blob([blob], { type: 'application/pdf' });
+                    const blobUrl = URL.createObjectURL(pdfBlob);
+                    
                     const tempAnchor = document.createElement('a');
                     tempAnchor.href = blobUrl;
                     tempAnchor.download = 'cv_aa.pdf';
                     document.body.appendChild(tempAnchor);
                     tempAnchor.click();
-                    document.body.removeChild(tempAnchor);
-                    URL.revokeObjectURL(blobUrl);
+                    
+                    // Delay cleanup to allow browser to register download details before revoking the URL
+                    setTimeout(() => {
+                        document.body.removeChild(tempAnchor);
+                        URL.revokeObjectURL(blobUrl);
+                    }, 200);
                 })
                 .catch(err => {
                     console.error('Failed to download CV programmatically:', err);
