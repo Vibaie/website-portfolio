@@ -3,15 +3,15 @@
 Welcome to my personal digital portfolio! This is a premium, high-end dark cyber-security themed portfolio website showcasing my academic journey, tech stack, and interactive engineering projects.
 
 <p align="center">
-  <a href="https://meowzyyy.github.io/portfolio-website/">
-    <img src="https://img.shields.io/badge/%F0%9F%8C%90-CLICK%20TO%20CHECK%20LIVE-10b981?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Click to Check Live" />
+  <a href="https://azirazrai.github.io/portfolio-website/">
+    <img src="https://img.shields.io/badge/%F0%9F%8C%90-CLICK%20TO%20CHECK%20LIVE-6366f1?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Click to Check Live" />
   </a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/license/MeowZyyy/portfolio-website?style=flat-square&color=10b981" alt="License MIT" />
-  <img src="https://img.shields.io/github/stars/MeowZyyy/portfolio-website?style=flat-square&color=10b981" alt="Stars" />
-  <img src="https://img.shields.io/github/forks/MeowZyyy/portfolio-website?style=flat-square&color=10b981" alt="Forks" />
+  <img src="https://img.shields.io/github/license/azirazrai/portfolio-website?style=flat-square&color=6366f1" alt="License MIT" />
+  <img src="https://img.shields.io/github/stars/azirazrai/portfolio-website?style=flat-square&color=6366f1" alt="Stars" />
+  <img src="https://img.shields.io/github/forks/azirazrai/portfolio-website?style=flat-square&color=6366f1" alt="Forks" />
 </p>
 
 ---
@@ -19,7 +19,7 @@ Welcome to my personal digital portfolio! This is a premium, high-end dark cyber
 ## 📸 Website Showcase
 
 <p align="center">
-  <img src="public/assets/images/portfolio_screenshot.png" alt="Ahmad Ainul Afeeq's Portfolio Showcase" width="100%" style="border-radius: 8px; border: 1px solid #10b981;" />
+  <img src="public/assets/images/portfolio_screenshot.png" alt="Azir Azrai's Portfolio Showcase" width="100%" style="border-radius: 8px; border: 1px solid #6366f1;" />
 </p>
 
 ---
@@ -48,7 +48,7 @@ To spin up this portfolio on your local machine:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/MeowZyyy/portfolio-website.git
+   git clone https://github.com/azirazrai/portfolio-website.git
    cd portfolio-website
    ```
 2. Install all local dependencies:

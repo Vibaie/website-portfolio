@@ -1,7 +1,7 @@
 {
-  "name": "ahmad-ainul-afeeq-portfolio",
+  "name": "azir-azrai-portfolio",
   "version": "1.0.0",
-  "description": "Personal portfolio website for Ahmad Ainul Afeeq",
+  "description": "Personal portfolio website for Azir Azrai",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -13,11 +13,12 @@
     "cybersecurity",
     "web"
   ],
-  "author": "Ahmad Ainul Afeeq",
+  "author": "Azir Azrai",
   "license": "MIT",
   "dependencies": {
     "express": "^4.19.2",
     "nodemailer": "^8.0.7",
+    "postprocessing": "^6.39.1",
     "three": "^0.184.0"
   },
   "devDependencies": {

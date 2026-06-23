@@ -1,5 +1,5 @@
 /**
- * server.js — Express server for Ahmad Ainul Afeeq's Portfolio
+ * server.js — Express server for Azir Azrai's Portfolio
  * Serves the static frontend and provides a /api/contact endpoint
  * for the contact form so messages can be handled server-side.
  */
@@ -23,6 +23,9 @@ app.get('/three.js', (req, res) => {
 
 // Serve every file inside /public as a static asset
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Serve local browser modules used by the Hyperspeed background
+app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 
 // ─── Visitor Counter Data Persistence ─────────────────────────────────────────
 const fs = require('fs');
