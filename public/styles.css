@@ -1767,7 +1767,7 @@ nav {
 }
 
 .logo::after {
-    content: ".folio";
+    content: ".terminal";
     color: var(--primary-color);
     letter-spacing: 0;
     margin-left: 0.2rem;
@@ -1778,7 +1778,7 @@ nav {
 }
 
 .logo:hover::after {
-    content: ".folio";
+    content: ".terminal";
     position: static;
     background: transparent;
     opacity: 1;
