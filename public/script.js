@@ -823,41 +823,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     })();
 
-    /* =========================================
-       14. FORCE PDF DOWNLOAD FOR RESUME
-       ========================================= */
-    const cvDownloadLinks = document.querySelectorAll('a[href*="cv_aa.pdf"]');
-    cvDownloadLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const fileUrl = link.getAttribute('href');
-            
-            fetch(fileUrl)
-                .then(response => {
-                    if (!response.ok) throw new Error('Network response was not ok');
-                    return response.blob();
-                })
-                .then(blob => {
-                    const reader = new FileReader();
-                    reader.onloadend = () => {
-                        const base64data = reader.result;
-                        const tempAnchor = document.createElement('a');
-                        tempAnchor.href = base64data;
-                        tempAnchor.download = 'cv_aa.pdf';
-                        document.body.appendChild(tempAnchor);
-                        tempAnchor.click();
-                        
-                        setTimeout(() => {
-                            document.body.removeChild(tempAnchor);
-                        }, 300);
-                    };
-                    reader.readAsDataURL(blob);
-                })
-                .catch(err => {
-                    console.error('Failed to download CV programmatically:', err);
-                    window.open(fileUrl, '_blank');
-                });
-        });
-    });
-
 });
