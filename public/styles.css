@@ -1717,7 +1717,7 @@ body,
     --border-light: rgba(21, 21, 21, 0.14);
     --border-dark: rgba(217, 4, 0, 0.2);
     --nav-bg: rgba(247, 244, 239, 0.92);
-    --card-bg: rgba(255, 255, 255, 0.78);
+    --card-bg: rgba(255, 255, 255, 0.96);
 }
 
 body {
@@ -1985,6 +1985,11 @@ main {
     border-radius: 6px;
     background: linear-gradient(180deg, var(--card-bg), rgba(10, 10, 14, 0.82));
     box-shadow: none;
+}
+
+[data-theme="light"] .glass-card {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .glass-card:hover {
