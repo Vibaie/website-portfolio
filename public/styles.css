@@ -307,10 +307,15 @@ main {
 .tag {
     background-color: var(--bg-light);
     color: var(--text-light);
-    padding: 0.3rem 0.8rem;
+    padding: 0.4rem 0.9rem;
     border-radius: 20px;
     font-size: 0.8rem;
     border: 1px solid var(--border-dark);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    line-height: 1;
 }
 
 .form-group {
