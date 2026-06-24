@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
 
     /* =========================================
@@ -53,53 +54,22 @@ document.addEventListener('DOMContentLoaded', () => {
        2. LOADING SCREEN
        ========================================= */
     const loaderWrapper = document.getElementById('loader-wrapper');
-    const loaderBar = document.getElementById('loader-bar');
-    const loaderText = document.getElementById('loader-text');
-    const loaderPercent = document.getElementById('loader-percent');
 
-    if (loaderWrapper && loaderBar && loaderText && loaderPercent) {
+    if (loaderWrapper) {
         const alreadyLoaded = sessionStorage.getItem('portfolioLoaded');
         if (alreadyLoaded) {
             loaderWrapper.style.display = 'none';
         } else {
             document.body.style.overflow = 'hidden';
-            let progress = 0;
-            const loadingPhrases = [
-                "[SYSTEM INIT] Boot sequence started...",
-                "[NET] Establishing secure connection...",
-                "[FW] Bypassing mainframe protocols...",
-                "[ENC] Decrypting cryptographic keys...",
-                "[UI] Loading portfolio modules...",
-                "[OK] Access granted. Welcome."
-            ];
-
-            const loadingInterval = setInterval(() => {
-                progress += Math.floor(Math.random() * 12) + 4;
-                if (progress > 100) progress = 100;
-
-                loaderBar.style.width = progress + '%';
-                loaderPercent.textContent = progress;
-
-                if (progress < 20) loaderText.textContent = loadingPhrases[0];
-                else if (progress < 40) loaderText.textContent = loadingPhrases[1];
-                else if (progress < 60) loaderText.textContent = loadingPhrases[2];
-                else if (progress < 80) loaderText.textContent = loadingPhrases[3];
-                else if (progress < 100) loaderText.textContent = loadingPhrases[4];
-                else loaderText.textContent = loadingPhrases[5];
-
-                if (progress === 100) {
-                    clearInterval(loadingInterval);
-                    setTimeout(() => {
-                        loaderWrapper.style.opacity = '0';
-                        loaderWrapper.style.pointerEvents = 'none';
-                        setTimeout(() => {
-                            loaderWrapper.style.display = 'none';
-                            document.body.style.overflow = '';
-                            sessionStorage.setItem('portfolioLoaded', 'true');
-                        }, 800);
-                    }, 2500);
-                }
-            }, 160);
+            setTimeout(() => {
+                loaderWrapper.style.opacity = '0';
+                loaderWrapper.style.pointerEvents = 'none';
+                setTimeout(() => {
+                    loaderWrapper.style.display = 'none';
+                    document.body.style.overflow = '';
+                    sessionStorage.setItem('portfolioLoaded', 'true');
+                }, 800);
+            }, 2500); // Display the new visual loader for 2.5 seconds
         }
     }
 

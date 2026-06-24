@@ -2293,3 +2293,95 @@ main {
     }
 }
 
+/* =========================================
+   Visual Loading Screen
+   ========================================= */
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #050505;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loader-wrapper.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-ring-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: var(--primary-color, #ff003c);
+    border-bottom-color: var(--accent-color, #00f0ff);
+    animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+}
+
+.loader-ring::before {
+    content: '';
+    position: absolute;
+    top: 10px; left: 10px; right: 10px; bottom: 10px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-left-color: var(--secondary-color, #fcee0a);
+    animation: spin-reverse 2s linear infinite;
+}
+
+.loader-logo {
+    position: relative;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--text-light, #fff);
+    text-shadow: 0 0 10px var(--primary-color, #ff003c);
+    animation: pulse 2s infinite alternate;
+    font-family: var(--header-font, "Orbitron", sans-serif);
+    letter-spacing: 2px;
+}
+
+.loader-text {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-muted, #a0a0a0);
+    letter-spacing: 4px;
+    font-family: var(--header-font, "Orbitron", sans-serif);
+    animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
