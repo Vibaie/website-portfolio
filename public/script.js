@@ -628,6 +628,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const playUrl = card.getAttribute('data-project-play-text') ? card.getAttribute('data-project-play') : '#';
             const playText = card.getAttribute('data-project-play-text') || 'Play Game';
             const repoUrl = card.getAttribute('data-project-repo') || '#';
+            const repoText = card.getAttribute('data-project-repo-text') || 'View Repository';
 
             if (projectModalTitle) projectModalTitle.textContent = title;
             if (projectModalDesc) projectModalDesc.textContent = desc;
@@ -663,6 +664,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (projectModalRepo) {
                 if (repoUrl && repoUrl !== '#') {
                     projectModalRepo.href = repoUrl;
+                    projectModalRepo.textContent = repoText;
                     projectModalRepo.style.display = 'inline-block';
                 } else {
                     projectModalRepo.style.display = 'none';
